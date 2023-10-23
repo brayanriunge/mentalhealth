@@ -25,7 +25,7 @@ export default function Navbar() {
             <h2
               className="font-bold text-2xl"
               style={{ fontFamily: "Bungee Spice, cursive" }}>
-              GOLDMARK {""}
+              eMental {""}
               <span className="text-secondary-gray-700 text-2xl">Realtors</span>
             </h2>
 
@@ -47,8 +47,7 @@ export default function Navbar() {
                  className=" text-primary-gray-500"
                  > Contact Us</a>
                  </Link>
-                  {/**drop down menu */}
-                  <Dropdown items={dropdownItems} />
+                 
                 </div>
                {/** left side */}
               </div>
