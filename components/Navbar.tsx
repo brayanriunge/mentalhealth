@@ -1,10 +1,11 @@
 import useMediaQuery from "@/hooks/userMediaQuery";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Logo from "@/public/goldmark.jpg";
+// import Logo from "@/public/goldmark.jpg";
+import {HiOutlineX} from "react-icons/hi"
+import {HiBars3} from "react-icons/hi2"
 
 
 export default function Navbar() {
@@ -21,12 +22,12 @@ export default function Navbar() {
           <div className={`${flexStyles} w-full gap-10`}>
             {/**left side */}
             {/**put logo here  */}
-            <Image src={Logo} alt="logo" width={90} height={20} />
+            {/* <Image src={Logo} alt="logo" width={90} height={20} /> */}
             <h2
               className="font-bold text-2xl"
               style={{ fontFamily: "Bungee Spice, cursive" }}>
               eMental {""}
-              <span className="text-secondary-gray-700 text-2xl">Realtors</span>
+              
             </h2>
 
             {/**right side */}
@@ -55,7 +56,7 @@ export default function Navbar() {
               <button
                 className="rounded-full p-2 bg-secondary-gray-300"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                <Bars3Icon className="h-6 w-6 " />
+                <HiOutlineX className="h-6 w-6 " />HiOutlineX
               </button>
             )}
 
@@ -65,7 +66,7 @@ export default function Navbar() {
                 {/**close icon */}
                 <div className="p-4 flex justify-end ">
                   <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                    <XMarkIcon className="h-6 w-6 text-primary-gray-500 " />
+                    <HiBars3 className="h-6 w-6 text-primary-gray-500 " />
                   </button>
                 </div>
                 {/**menu items */}
