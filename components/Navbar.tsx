@@ -56,7 +56,7 @@ export default function Navbar() {
               <button
                 className="rounded-full p-2 bg-secondary-gray-300"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                <HiOutlineX className="h-6 w-6 " />HiOutlineX
+                <HiBars3 className="h-6 w-6 " />
               </button>
             )}
 
@@ -66,7 +66,7 @@ export default function Navbar() {
                 {/**close icon */}
                 <div className="p-4 flex justify-end ">
                   <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                    <HiBars3 className="h-6 w-6 text-primary-gray-500 " />
+                    <HiOutlineX className="h-6 w-6 text-primary-gray-500 " />
                   </button>
                 </div>
                 {/**menu items */}
