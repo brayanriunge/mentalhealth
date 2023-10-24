@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className={`${flexStyles} w-full top-0 z-30 fixed py-2 bg-secondary-gray-200 shadow`}>
+      <div className={`${flexStyles} w-full top-0 z-30 fixed py-2  bg-primary-gray-200 shadow`}>
         <div className={`${flexStyles} mx-auto w-5/6`}>
           <div className={`${flexStyles} w-full gap-10`}>
             {/**left side */}
@@ -67,7 +67,7 @@ export default function Navbar() {
 
             {/**mobile menu modal */}
             {!isAboveMediaScreens && isMenuToggled && (
-              <div className="fixed right-0 bottom-0 h-full w-[300px] z-40 bg-primary-gray-200 drop-shadow-xl">
+              <div className="bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 fixed right-0 bottom-0 h-full w-[300px] z-40 drop-shadow-xl">
                 {/**close icon */}
                 <div className="p-4 flex justify-end ">
                   <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -75,7 +75,7 @@ export default function Navbar() {
                   </button>
                 </div>
                 {/**menu items */}
-                <div className="bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 flex flex-col gap-10 text-2xl ml-[33%]">
+                <div className=" flex flex-col gap-10 text-2xl ml-[33%]">
                   <Link legacyBehavior href={"/"}>
                     <a
                       className={`${
