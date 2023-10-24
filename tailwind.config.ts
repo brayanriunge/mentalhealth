@@ -17,7 +17,7 @@ const config: Config = {
       colors: {
         "gray-20": "#333333", //text color
         "primary-gray": "#A9A9A9",// page background
-        "primary-gray-200": "#00A2FT",//navbar bg
+        "primary-gray-200": "#00A2FF",//navbar bg
         "primary-gray-500": "#FFC0CB",//button color
         "secondary-gray-200": "#4CAF50",//highlighting elements
         "secondary-gray-300": "#379834",

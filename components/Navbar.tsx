@@ -51,6 +51,11 @@ export default function Navbar() {
                  
                 </div>
                {/** left side */}
+               <button
+                className="rounded-md  px-8 p-2 bg-primary-gray-500"
+               >
+                Sign Up
+              </button>
               </div>
             ) : (
               <button
@@ -70,7 +75,7 @@ export default function Navbar() {
                   </button>
                 </div>
                 {/**menu items */}
-                <div className="flex flex-col gap-10 text-2xl ml-[33%]">
+                <div className="bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 flex flex-col gap-10 text-2xl ml-[33%]">
                   <Link legacyBehavior href={"/"}>
                     <a
                       className={`${
