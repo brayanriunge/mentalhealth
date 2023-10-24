@@ -38,14 +38,14 @@ export default function Navbar() {
                   <Link legacyBehavior href={"/"}>
                     <a
                       className={`${
-                        router.pathname === "/" ? "text-primary-gray" : ""
+                        router.pathname === "/" ? "text-gray-20" : ""
                       }`}>
                       Home
                     </a>
                   </Link>
                  <Link legacyBehavior href="/#contactus">
                  <a 
-                 className=" text-primary-gray-500"
+                 className=" text-gray-20"
                  > Contact Us</a>
                  </Link>
                  
@@ -62,11 +62,11 @@ export default function Navbar() {
 
             {/**mobile menu modal */}
             {!isAboveMediaScreens && isMenuToggled && (
-              <div className="fixed right-0 bottom-0 h-full w-[300px] z-40 bg-secondary-gray-300 drop-shadow-xl">
+              <div className="fixed right-0 bottom-0 h-full w-[300px] z-40 bg-primary-gray-200 drop-shadow-xl">
                 {/**close icon */}
                 <div className="p-4 flex justify-end ">
                   <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                    <HiOutlineX className="h-6 w-6 text-primary-gray-500 " />
+                    <HiOutlineX className="h-6 w-6 text-gray-20 " />
                   </button>
                 </div>
                 {/**menu items */}
