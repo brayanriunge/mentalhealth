@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-// import Logo from "@/public/goldmark.jpg";
+import Logo from "@/public/Logo.jpeg";
 import {HiOutlineX} from "react-icons/hi"
 import {HiBars3} from "react-icons/hi2"
 
@@ -22,7 +22,7 @@ export default function Navbar() {
           <div className={`${flexStyles} w-full gap-10`}>
             {/**left side */}
             {/**put logo here  */}
-            {/* <Image src={Logo} alt="logo" width={90} height={20} /> */}
+            <Image src={Logo} alt="logo" width={90} height={20} className="rounded-full" />
             <h2
               className="font-bold text-2xl"
               style={{ fontFamily: "Bungee Spice, cursive" }}
