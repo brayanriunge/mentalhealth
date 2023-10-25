@@ -25,9 +25,9 @@ export default function Navbar() {
             {/* <Image src={Logo} alt="logo" width={90} height={20} /> */}
             <h2
               className="font-bold text-2xl"
-              style={{ fontFamily: "Bungee Spice, cursive" }}>
+              style={{ fontFamily: "Bungee Spice, cursive" }}
+            >
               eMental {""}
-              
             </h2>
 
             {/**right side */}
