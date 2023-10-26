@@ -48,7 +48,11 @@ export default function Navbar() {
                  className=" text-gray-20"
                  > Contact Us</a>
                  </Link>
-                 
+                 <Link legacyBehavior href="/#contactus">
+                 <a 
+                 className=" text-gray-20"
+                 > Community</a>
+                 </Link>
                 </div>
                {/** left side */}
                <button
