@@ -1,3 +1,4 @@
+import Layout from '@/components/Layout';
 import { useState } from 'react';
 
 interface Question {
@@ -94,26 +95,29 @@ const MentalHealthAssessment: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {questions.map((question) => (
-        <div key={question.id}>
-          <h2>{question.text}</h2>
-          {question.options.map((option) => (
-            <div key={option}>
-              <input
-                type="radio"
-                id={`${question.id}-${option}`}
-                name={question.id}
-                checked={responses[question.id] === option}
-                onChange={() => handleResponseChange(question.id, option)}
-              />
-              <label htmlFor={`${question.id}-${option}`}>{option}</label>
-            </div>
-          ))}
-        </div>
-      ))}
+    <Layout>
+     <form onSubmit={handleSubmit} className="gap-16 bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 py-10 md:h-full min-h-full mt-8 md:pb-0">
+       {questions.map((question) => (
+         <div key={question.id}>
+           <h2>{question.text}</h2>
+           {question.options.map((option) => (
+             <div key={option}>
+               <input
+                 type="radio"
+                 id={`${question.id}-${option}`}
+                 name={question.id}
+                 checked={responses[question.id] === option}
+                 onChange={() => handleResponseChange(question.id, option)}
+                />
+               <label htmlFor={`${question.id}-${option}`}>{option}</label>
+             </div>
+            ))}
+         </div>
+        ))}
       <button type="submit">Submit</button>
-    </form>
+     </form>
+    </Layout>
+    
   );
 };
 

@@ -43,15 +43,23 @@ export default function Navbar() {
                       Home
                     </a>
                   </Link>
+                  <Link legacyBehavior href={"/Assessment"}>
+                    <a
+                      className={`${
+                        router.pathname === "/Assessment" ? "text-gray-20" : ""
+                      }`}>
+                     Assessment 
+                    </a>
+                  </Link>
                  <Link legacyBehavior href="/#contactus">
-                 <a 
-                 className=" text-gray-20"
-                 > Contact Us</a>
+                  <a className=" text-gray-20">
+                   Contact Us
+                  </a>
                  </Link>
                  <Link legacyBehavior href="/#contactus">
-                 <a 
-                 className=" text-gray-20"
-                 > Community</a>
+                   <a  className=" text-gray-20">
+                     Community
+                   </a>
                  </Link>
                 </div>
                {/** left side */}
