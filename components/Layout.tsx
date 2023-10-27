@@ -6,7 +6,7 @@ type Prop = {
 
 export default function Layout({ children }: Prop) {
   return (
-    <div className="bg-gray-20">
+    <div className=" bg-gradient-to-r from-blue-400 via-blue-600 to-green-400">
       <Navbar />
       {children}
     </div>

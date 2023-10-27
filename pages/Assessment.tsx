@@ -96,26 +96,29 @@ const MentalHealthAssessment: React.FC = () => {
 
   return (
     <Layout>
-     <form onSubmit={handleSubmit} className="gap-16 bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 py-10 md:h-full min-h-full mt-8 md:pb-0">
-       {questions.map((question) => (
-         <div key={question.id}>
-           <h2>{question.text}</h2>
-           {question.options.map((option) => (
-             <div key={option}>
-               <input
-                 type="radio"
-                 id={`${question.id}-${option}`}
-                 name={question.id}
-                 checked={responses[question.id] === option}
-                 onChange={() => handleResponseChange(question.id, option)}
-                />
-               <label htmlFor={`${question.id}-${option}`}>{option}</label>
-             </div>
-            ))}
-         </div>
-        ))}
-      <button type="submit">Submit</button>
-     </form>
+        <section  className="mt-2 min-h-full w-5/6 mx-auto py-20 ">
+          <form onSubmit={handleSubmit} className="gap-16 py-10 md:h-full min-h-full mt-8 md:pb-0 rounded-md bg-green-300 flex flex-wrap items-start flex-col ">
+             {questions.map((question) => (
+                 <div key={question.id} className=' ml-8'>
+                     <h2 className='text-lg font-bold'>{question.text}</h2>
+                     {question.options.map((option) => (
+                     <div key={option}>
+                      <input
+                        type="radio"
+                       id={`${question.id}-${option}`}
+                       name={question.id}
+                       checked={responses[question.id] === option}
+                                 onChange={() => handleResponseChange(question.id, option)}
+                      />
+                      <label htmlFor={`${question.id}-${option}`}>{option}</label>
+                     </div>
+                     ))}
+                  </div>
+             ))}
+             <button type="submit">Submit</button>
+           </form>
+        </section>
+     
     </Layout>
     
   );
