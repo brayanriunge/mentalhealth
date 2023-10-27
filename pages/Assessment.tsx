@@ -97,25 +97,30 @@ const MentalHealthAssessment: React.FC = () => {
   return (
     <Layout>
         <section  className="mt-2 min-h-full w-5/6 mx-auto py-20 ">
-          <form onSubmit={handleSubmit} className="gap-16 py-10 md:h-full min-h-full mt-8 md:pb-0 rounded-md bg-green-300 flex flex-wrap items-start flex-col ">
-             {questions.map((question) => (
-                 <div key={question.id} className=' ml-8'>
-                     <h2 className='text-lg font-bold'>{question.text}</h2>
-                     {question.options.map((option) => (
-                     <div key={option}>
-                      <input
-                        type="radio"
-                       id={`${question.id}-${option}`}
-                       name={question.id}
-                       checked={responses[question.id] === option}
-                                 onChange={() => handleResponseChange(question.id, option)}
-                      />
-                      <label htmlFor={`${question.id}-${option}`}>{option}</label>
-                     </div>
-                     ))}
-                  </div>
-             ))}
-             <button type="submit">Submit</button>
+          <form onSubmit={handleSubmit} className="gap-16 shadow-3xl mt-8 py-10 md:h-full min-h-full md:pb-0 rounded-lg bg-green-300 flex flex-wrap items-start flex-col ">
+            <div className='flex items-center justify-between gap-8 border-4 border-double mt-5 w-5/6  ml-12'>
+              <h1 className='font-bold text-2xl text-orange-800  ml-80 m-6'>Assessment Test</h1>
+            </div>
+            {questions.map((question) => (
+              <div key={question.id} className='ml-8 mb-6'>
+                <h2 className="text-lg font-medium mb-2">{question.text}</h2>
+                {question.options.map((option) => (
+                  <div key={option} className="flex items-center mb-2">
+                    <input
+                     type="radio"
+                     id={`${question.id}-${option}`}
+                     name={question.id}
+                     checked={responses[question.id] === option}
+                     onChange={() => handleResponseChange(question.id, option)}
+                    />
+                    <label htmlFor={`${question.id}-${option}`}>{option}</label>
+                 </div>
+                ))}
+              </div>
+            ))}
+             <div  className='flex justify-center ml-8 mb-6'>
+              <button type="submit" className=' bg-orange-500 border-4  transition duration-500 hover:text-white hover:border-dotted  mt-5 px-20 py-3 rounded-lg  '>Submit</button>
+             </div>
            </form>
         </section>
      
