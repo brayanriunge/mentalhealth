@@ -102,10 +102,10 @@ const MentalHealthAssessment: React.FC = () => {
 
   return (
     <Layout>
-        <section  className="mt-2 min-h-full w-5/6 mx-auto py-20 ">
+        <section  className="mt-2 min-h-full md:h-full  md:pb-0 w-5/6 mx-auto py-20 ">
           <form onSubmit={handleSubmit} className="gap-16 shadow-3xl mt-8 py-10 md:h-full min-h-full md:pb-0 rounded-lg bg-green-300 flex flex-wrap items-start flex-col ">
             <div className='flex items-center justify-between gap-8 border-4 border-double mt-5 w-5/6  ml-12'>
-              <h1 className={`${roboto.className}font-bold text-5xl text-orange-800  ml-40 m-6`}>Assessment Test</h1>
+              <h1 className={`${roboto.className}font-bold sm:text-3xl sm:p-5 text-5xl text-orange-800  sm:ml-60 m-6`}>Assessment Test</h1>
             </div>
             {questions.map((question) => (
               <div key={question.id} className='ml-8 mb-6'>
