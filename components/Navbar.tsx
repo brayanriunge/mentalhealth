@@ -58,7 +58,7 @@ export default function Navbar() {
                  </Link>
                  <Link legacyBehavior href="/#contactus">
                    <a  className=" text-gray-20">
-                     tell the tale
+                     Community
                    </a>
                  </Link>
                 </div>
