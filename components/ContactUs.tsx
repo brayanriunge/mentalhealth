@@ -32,7 +32,7 @@ export default function ContactUs(){
                 visible: {opacity:1 , x:0},
              }}
             >
-                <span style={{ fontFamily: "Bungee Spice, cursive" }}                >
+                <span className="text-orange-800"                >
                     Contact Us
                 </span> FOR MORE ASSISTANCE
             </motion.div>
@@ -40,7 +40,18 @@ export default function ContactUs(){
                 Fill in the form, by typing your message to contacts us through our email. Thank you.
             </p>
             <div className="mt-10 justify-between md:flex gap-8">
-               <form
+              <motion.div
+               className="mt-10 basis-3/5 md:mt-0"
+               initial="hidden"
+               whileInView="visible"
+               viewport={{once:true, amount: 0.5}}
+               transition={{duration: 0.5}}
+               variants={{
+                  hidden: {opacity:0, y: 50},
+                  visible: {opacity:1 , y:0},
+               }}
+              >
+                <form
                target="_blank"
                onSubmit={onSubmit}
                method="POST"
@@ -93,15 +104,29 @@ export default function ContactUs(){
                )}
 
                <button type="submit"
-               className="bg-secondary-gray-300 text-white mt-5 px-20 py-3 rounded-lg transition duration-500 hover:text-black"
+               className=' bg-orange-500 border-4  transition duration-500 hover:text-white hover:border-dotted  mt-5 px-20 py-3 rounded-lg  '
                >
                 Submit
                </button>
 
                </form>
-                <div className="mt-16 basis-2/5 md:mt-0">
+              </motion.div>
+              <motion.div
+               className="relative mt-16 basis-2/5 md:mt-0"
+               initial="hidden"
+               whileInView="visible"
+               viewport={{once:true, amount: 0.5}}
+               transition={{delay: 0.2, duration: 0.5}}
+               variants={{
+                  hidden: {opacity:0, y: 50},
+                  visible: {opacity:1 , y:0},
+               }}
+              >
+                <div className="w-full">
                     <Image src={Contact} alt="cost" height={400} className='rounded-lg'/>
                 </div>
+              </motion.div>
+                
             </div>
 
         </section>
