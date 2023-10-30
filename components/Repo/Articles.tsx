@@ -31,7 +31,7 @@ const container={
 
 export default function Article(){
     return(
-    <section className="mx-auto min-h-full w-5/6 py-20">
+    <section className="mx-auto min-h-full w-5/6 py-8">
             {/** HEADER */}
      <motion.div 
      className="md:my-5 md:w-3/5"
@@ -44,7 +44,7 @@ export default function Article(){
         visible: {opacity:1 , x:0},
      }}
     >
-        <h1 className=" basis-3/5 font-montserrat text-3xl font-bold">
+        <h1 className=" basis-3/5 font-montserrat text-3xl text-orange-800 font-bold">
            Articles
         </h1>
         <p className="my-5 text-sm">
@@ -56,7 +56,7 @@ export default function Article(){
     {/**Benefits */}
     
     <motion.div
-     className="md:flex items-center justify-between gap-8 mt-5"
+     className="md:flex items-center justify-between gap-8 mt-2"
      initial = "hidden"
      whileInView="visible"
      viewport={{once:true , amount: 0.5}}

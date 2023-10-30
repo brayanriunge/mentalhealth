@@ -61,7 +61,7 @@ export default function Dashboard (){
         <div className="flex basis-3/5 justify-center md:z-10
             md:ml-40 md:mt-16 md:justify-items-end"
         >
-          <Image src={Home} alt="logo" className="shadow rounded-md mb-8"/>
+          <Image src={Home} alt="logo" className="shadow rounded-md mb-4"/>
         </div>
     </motion.div>
         </section>
