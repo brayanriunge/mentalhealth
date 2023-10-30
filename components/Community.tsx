@@ -5,7 +5,7 @@ import community from "@/public/community.jpeg"
 
 export default function Community(){
     return(
-    <section className="gap-16 py-4 md:h-full  md:pb-0">
+    <section className="gap-16 py-4 md:h-full pb-4">
     <motion.div
      className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6"
     >

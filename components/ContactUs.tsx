@@ -19,7 +19,7 @@ export default function ContactUs(){
         }
     }
     return(
-        <section className="mx-auto w-5/6 pt-8 pb-20"
+        <section className="mx-auto w-5/6 pt-8 pb-10"
          id="contactus"
         >
             <motion.div 
