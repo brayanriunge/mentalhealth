@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import Image from "next/image";
-import Cost from "@/public/Cost.jpeg"
+import Contact from "@/public/ContactUs.jpeg"
+import { motion } from "framer-motion";
 
 export default function ContactUs(){
     const inputStyles= `mb-5 w-full rounded-lg bg-secondary-300
@@ -18,13 +19,23 @@ export default function ContactUs(){
         }
     }
     return(
-        <section className="mx-auto w-5/6 pt-24 pb-32"
+        <section className="mx-auto w-5/6 pt-24 pb-20"
         id="contactus">
-            <div className="text-2xl font-bold text-primary-gray-500">
+            <motion.div 
+             className=" basis-3/5 font-montserrat text-3xl font-bold md: w-3/5"
+             initial="hidden"
+             whileInView="visible"
+             viewport={{once:true, amount: 0.5}}
+             transition={{duration: 0.5}}
+             variants={{
+                hidden: {opacity:0, x: -50},
+                visible: {opacity:1 , x:0},
+             }}
+            >
                 <span style={{ fontFamily: "Bungee Spice, cursive" }}                >
                     Contact Us
                 </span> FOR MORE ASSISTANCE
-            </div>
+            </motion.div>
             <p className="text-primary-gray-500 my-5">
                 Fill in the form, by typing your message to contacts us through our email. Thank you.
             </p>
@@ -89,7 +100,7 @@ export default function ContactUs(){
 
                </form>
                 <div className="mt-16 basis-2/5 md:mt-0">
-                    {/* <Image src={Cost} alt="cost" height={450} width={450} className='rounded-lg'/> */}
+                    <Image src={Contact} alt="cost" height={400} className='rounded-lg'/>
                 </div>
             </div>
 
