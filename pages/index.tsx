@@ -4,6 +4,7 @@ import ContactUs from '@/components/ContactUs'
 import Cards from '@/components/Repo/Cards'
 import Articles from '@/components/Repo/Articles'
 import Community from '@/components/Community'
+import Footer from '@/components/Footer'
 
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
     <Articles/>
     <Community/>
     <ContactUs/>
+    <Footer/>
    </Layout>
    
    
