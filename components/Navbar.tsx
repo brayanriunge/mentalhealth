@@ -24,8 +24,8 @@ export default function Navbar() {
             {/**put logo here  */}
             <Image src={Logo} alt="logo" width={90} height={20} className="rounded-full" />
             <h2
-              className="font-bold text-2xl"
-              style={{ fontFamily: "Bungee Spice, cursive" }}
+              className="font-bold text-red-500 text-3xl text-montserrat"
+              
             >
               eMental {""}
             </h2>
@@ -51,15 +51,21 @@ export default function Navbar() {
                      Assessment 
                     </a>
                   </Link>
-                 <Link legacyBehavior href="/#contactus">
+                  <Link legacyBehavior href="/articles">
                   <a className=" text-gray-20">
-                   Contact Us
+                   Articles
                   </a>
                  </Link>
+                 
                  <Link legacyBehavior href="/#contactus">
                    <a  className=" text-gray-20">
                      Community
                    </a>
+                 </Link>
+                 <Link legacyBehavior href="/#contactus">
+                  <a className=" text-gray-20">
+                   Contact Us
+                  </a>
                  </Link>
                 </div>
                {/** left side */}

@@ -29,9 +29,11 @@ const container={
     }
 }
 
-export default function Articles(){
- {/** HEADER */}
-    <motion.div 
+export default function Article(){
+    return(
+    <section className="mx-auto min-h-full w-5/6 py-20">
+            {/** HEADER */}
+     <motion.div 
      className="md:my-5 md:w-3/5"
      initial="hidden"
      whileInView="visible"
@@ -66,8 +68,10 @@ export default function Articles(){
              icon={condition.icon}
              title={condition.title}
              description={condition.description}
-             
             />
         ))}
     </motion.div>
+        </section>
+    )
+ 
 }
