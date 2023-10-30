@@ -29,7 +29,7 @@ export default function Dashboard (){
                > 
                 eMental
                </h1>
-                <p className="mt-8 text-lg font-bold text-justify">
+                <p className="mt-8 text-montserrat  text-justify">
                  Welcome to Our Safe Space for Mental Wellness
                  You're not alone on this journey.
                  At eMental, we understand that taking care of your mental health is a courageous 

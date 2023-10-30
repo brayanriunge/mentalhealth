@@ -32,45 +32,51 @@ export default function Navbar() {
 
             {/**right side */}
             {isAboveMediaScreens ? (
-              <div className={`${flexStyles} w-full`}>
+              <div className={`${flexStyles} w-full text-montserrat`}>
                 <div
                   className={`${flexStyles} text-sm text-primary-gray-500  gap-8`}>
                   <Link legacyBehavior href={"/"}>
                     <a
                       className={`${
-                        router.pathname === "/" ? "text-gray-20" : ""
-                      }`}>
+                        router.pathname === "/" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
                       Home
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/Assessment"}>
+                  <Link legacyBehavior href={"/assessment"}>
                     <a
                       className={`${
-                        router.pathname === "/Assessment" ? "text-gray-20" : ""
-                      }`}>
+                        router.pathname === "/assessment" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
                      Assessment 
                     </a>
                   </Link>
                   <Link legacyBehavior href="/articles">
-                  <a className=" text-gray-20">
+                  <a className={`${
+                        router.pathname === "/articles" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
                    Articles
                   </a>
                  </Link>
                  
-                 <Link legacyBehavior href="/#contactus">
-                   <a  className=" text-gray-20">
+                 <Link legacyBehavior href="/community">
+                   <a className={`${
+                        router.pathname === "/community" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
                      Community
                    </a>
                  </Link>
                  <Link legacyBehavior href="/#contactus">
-                  <a className=" text-gray-20">
+                  <a className={`${
+                        router.pathname === "/#contactus" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
                    Contact Us
                   </a>
                  </Link>
                 </div>
                {/** left side */}
                <button
-                className="rounded-md  px-8 p-2 bg-primary-gray-500"
+                className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
                >
                 Sign Up
               </button>
@@ -85,69 +91,63 @@ export default function Navbar() {
 
             {/**mobile menu modal */}
             {!isAboveMediaScreens && isMenuToggled && (
-              <div className="bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 fixed right-0 bottom-0 h-full w-[300px] z-40 drop-shadow-xl">
+              <div className="bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 fixed right-0 bottom-0 h-full w-[300px] z-40 p-5 text-montserrat drop-shadow-xl">
                 {/**close icon */}
                 <div className="p-4 flex justify-end ">
                   <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                    <HiOutlineX className="h-6 w-6 text-gray-20 " />
+                    <HiOutlineX className="h-6 w-6  " />
                   </button>
                 </div>
                 {/**menu items */}
-                <div className=" flex flex-col gap-10 text-2xl ml-[33%]">
+                <div className=" flex flex-col gap-10 items-center text-justify text-2xl ">
                   <Link legacyBehavior href={"/"}>
                     <a
                       className={`${
-                        router.pathname === "/" ? "text-primary-gray-500" : ""
-                      } hover:text-primary-gray-500`}>
+                        router.pathname === "/" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
                       Home
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/subdivision"}>
+                  <Link legacyBehavior href={"/assessment"}>
                     <a
                       className={`${
-                        router.pathname === "/subdivision"
-                          ? "text-primary-gray"
-                          : ""
-                      } hover:text-primary-gray-500`}>
-                      Land Subdivision
+                        router.pathname === "/assessment"
+                          ? "text-red-800" : "text-gray-20"
+                        } hover:text-red-600`}>
+                       Assessment
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/title"}>
+                  <Link legacyBehavior href={"/articles"}>
                     <a
                       className={`${
-                        router.pathname === "/title" ? "text-primary-gray" : ""
-                      } hover:text-primary-gray-500`}>
-                      Title Processing
+                        router.pathname === "/articles" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
+                      Articles 
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/buying"}>
+                  <Link legacyBehavior href={"/Community"}>
                     <a
                       className={`${
-                        router.pathname === "/buying" ? "text-primary-gray" : ""
-                      } hover:text-primary-gray-500`}>
-                      Land Buying and Selling
+                        router.pathname === "/Community" ? "text-red-800" : "text-gray-20"
+                      } hover:text-red-600`}>
+                      Community
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/demarcation"}>
+                  <Link legacyBehavior href={"/contactus"}>
                     <a
                       className={`${
-                        router.pathname === "/demarcation"
-                          ? "text-primary-gray"
-                          : ""
-                      } hover:text-primary-gray-500`}>
-                      Plot Demarcation
+                        router.pathname === "/contactus"
+                          ? "text-red-800" : "text-gray-20"
+                        } hover:text-red-600`}>
+                       Contact Us
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/topographical"}>
-                    <a
-                      className={`${
-                        router.pathname === "/topographical"
-                          ? "text-primary-gray"
-                          : ""
-                      } hover:text-primary-gray-500`}>
-                      Topographical Survey
-                    </a>
-                  </Link>
+                  
+                  <button
+                   className="rounded-md  px-8 p-2 bg-primary-gray-500"
+                  >
+                   Sign Up
+                  </button>
                 </div>
               </div>
             )}

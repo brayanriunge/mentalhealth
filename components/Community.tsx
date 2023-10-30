@@ -24,7 +24,7 @@ export default function Community(){
              }}
              >
                <h1 className="font-bold text-3xl" >Our <span  className="font-bold text-3xl text-orange-800">Community</span></h1>
-                <p className="mt-8 text-lg">
+                <p className="mt-8 text-lg text-montserrat">
                 Community is the bedrock of mental health. 
                 It offers understanding, support, and a sense of belonging. 
                 Together, we break down stigma, provide resources, and 

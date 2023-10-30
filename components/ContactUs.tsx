@@ -33,11 +33,12 @@ export default function ContactUs(){
                 visible: {opacity:1 , x:0},
              }}
             >
-                <span className="text-orange-800"                >
-                    Contact Us
-                </span> FOR MORE ASSISTANCE
+                <h1 className="text-orange-800">
+                 Contact Us <span className="text-gray-20"> FOR MORE ASSISTANCE</span> 
+                </h1>
+                
             </motion.div>
-            <p className="text-primary-gray-500 my-5">
+            <p className=" my-5">
                 Fill in the form, by typing your message to contacts us through our email. Thank you.
             </p>
             <div className="mt-10 justify-between md:flex gap-8">
