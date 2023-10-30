@@ -20,7 +20,8 @@ export default function ContactUs(){
     }
     return(
         <section className="mx-auto w-5/6 pt-24 pb-20"
-        id="contactus">
+         id="contactus"
+        >
             <motion.div 
              className=" basis-3/5 font-montserrat text-3xl font-bold md: w-3/5"
              initial="hidden"
