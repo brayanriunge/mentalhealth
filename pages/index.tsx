@@ -5,6 +5,7 @@ import Dashboard from '@/components/Dashboard'
 import QuizComponent from '@/components/QuizComponent'
 import Questionnaires from "@/components/Questioniares"
 import Layout from '@/components/Layout'
+import ContactUs from '@/components/ContactUs'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +14,7 @@ export default function Home() {
    
    <Layout>
     <Dashboard/>
+    <ContactUs/>
    </Layout>
    
    
