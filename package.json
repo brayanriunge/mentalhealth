@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.5.2",
     "framer-motion": "^10.16.4",
     "heroicons": "^2.0.18",
     "next": "13.5.6",
