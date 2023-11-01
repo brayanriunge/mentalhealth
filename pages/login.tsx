@@ -3,9 +3,16 @@ import Link from "next/link";
 import google from "@/public/Home.jpeg"
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 export default function Login(){
     const [show, setShow]=useState(false)
+
+    //google handler function
+    async function handleGoogleSignin(){
+        signIn("google",{callbackUrl: "http://localhost:3000"})
+    }
+
     return(
         <div className="flex h-screen bg-blue-400">
             <div className=" bg-slate-50 m-auto w-3/5 h-3/4 rounded-md">
@@ -46,7 +53,7 @@ export default function Login(){
                             </button>
                         </div>
                         <div className="">
-                            <button type="button" className="w-full py-3 border flex justify-between items-center gap-4  rounded-lg hover:bg-gray-300"> 
+                            <button type="button" onClick={handleGoogleSignin} className="w-full py-3 border flex justify-between items-center gap-4  rounded-lg hover:bg-gray-300"> 
                              <p >Sign in with Google</p>
                              <Image src={google} height={30} width={30} alt="google" className="rounded-full"/>
                             </button>
