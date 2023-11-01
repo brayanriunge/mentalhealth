@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Login(){
     return(
         <div className="flex h-screen bg-blue-400">
@@ -13,8 +15,36 @@ export default function Login(){
                 <div className=" flex flex-col text-center gap-10 h-full rounded-md">
                     <div className="m-auto px-4 py-4">
                        <div>
-                        <h1 className="font-bold text-4xl text-gray-800 font-montserrat"> Login</h1>
+                        <h1 className="font-bold text-4xl text-gray-800 font-montserrat py-4"> Login</h1>
                        </div>
+                       <form className="flex flex-col gap-5 ">
+                        <div className="">
+                         <input
+                          type="email"
+                          name="email"
+                          placeholder="Email"
+                         />
+                        </div>
+                        <div className="">
+                         <input
+                          type="password"
+                          name="password"
+                          placeholder="Email"
+                         />
+                        </div>
+                        <div className="">
+                            <button type="submit" className=""> Login</button>
+                        </div>
+                        <div className="">
+                            <button type="submit" className=""> Sign in with Google</button>
+                        </div>
+                       </form>
+                       <p>
+                        Not yet Registered 
+                        <Link legacyBehavior href={"/register"} className="text-center text-gray-400">
+                            <a className="text-blue-700"> Sign Up</a>
+                        </Link>
+                       </p>
                     </div>
                 </div>
             </div>
