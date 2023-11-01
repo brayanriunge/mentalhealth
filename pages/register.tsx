@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Login(){
     const [show, setShow]=useState(false)
     return(
-        <div className="flex h-screen bg-blue-400">
+        <div className="flex max-h-full bg-blue-400 gap-16 py-10 md:h-full min-h-full  md:pb-7">
             <div className=" bg-slate-50 m-auto w-3/5 h-3/4 rounded-md">
                 {/* Login form */}
                 <div className=" flex flex-col text-center gap-10 h-full rounded-md">
@@ -17,7 +17,7 @@ export default function Login(){
                        </div>
                        <form className="flex flex-col gap-5 ">
                         <div className="flex border border-gray-400  rounded-md relative">
-                        <input
+                         <input
                           type="text"
                           name="name"
                           placeholder="Username"
@@ -26,6 +26,8 @@ export default function Login(){
                          <span className="icon flex items-center px-4 ">
                             <HiAtSymbol className="h-[25px] w-[25px]" />
                          </span>
+                        </div>
+                        <div className="flex border border-gray-400  rounded-md relative">
                          <input
                           type="email"
                           name="email"
@@ -46,14 +48,15 @@ export default function Login(){
                          <span className="icon flex items-center px-4  " onClick={()=> setShow(!show)}>
                             <HiFingerPrint className="h-[25px] w-[25px]" />
                          </span>
-
+                        </div>
+                        <div className="flex border border-gray-400  rounded-md relative ">
                          <input
-                          type={`${show ? "text":"password"}`}
-                          name="cpassword"
-                          placeholder=" Confirm Password"
-                          className="w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none"
-                         />
-                         <span className="icon flex items-center px-4  " onClick={()=> setShow(!show)}>
+                           type={`${show ? "text":"password"}`}
+                           name="cpassword"
+                           placeholder=" Confirm Password"
+                           className="w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none"
+                          />
+                          <span className="icon flex items-center px-4  " onClick={()=> setShow(!show)}>
                             <HiFingerPrint className="h-[25px] w-[25px]" />
                          </span>
                         </div>
