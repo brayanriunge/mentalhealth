@@ -24,6 +24,9 @@ const config: Config = {
         dmsans: ["DM Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
       },
+      backgroundImage: (theme) => ({
+        homeimage: "url('/person.jpeg')",
+      }),
     },
   },
   plugins: [],
