@@ -75,6 +75,7 @@ export default function Navbar() {
                  </Link>
                 </div>
                {/** left side */}
+               
                <button
                 className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
                >
