@@ -4,9 +4,11 @@ import google from "@/public/Homepic.jpeg"
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Login(){
     const [show, setShow]=useState({password:false, cpassword: false})
+    const router = useRouter()
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
@@ -27,7 +29,12 @@ export default function Login(){
             console.log(data)
             if(!data.user) throw new Error("user exist")
 
-            signIn("credentials",{name: data.user.name, email: data.user.email, password: form.get('password'), callbackUrl:'http://localhost:3000'})
+            if (data.status === 201) {
+                router.replace('/');
+              }
+              
+
+            signIn("credentials",{name: data.user.name, email: data.user.email, password: form.get('password'), callbackUrl:'/'})
 
         } catch (error) {
             return console.error(error)

@@ -3,18 +3,26 @@ import Link from "next/link";
 import google from "@/public/Homepic.jpeg"
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Login(){
     const [show, setShow]=useState(false)
+    const { data: session } = useSession();
+    const router = useRouter();
+  
+    if (session) {
+      router.replace("/");
+      return null;
+    }
 
     //google handler function
     async function handleGoogleSignin(){
-        signIn("google",{callbackUrl: "http://localhost:3000"})
+        signIn("google",{redirect: "http://localhost:3000"})
     }
 
     return(
-        <div className="flex h-screen bg-blue-400">
+        <div className="flex min-h-full bg-blue-400">
             <div className=" bg-slate-50 m-auto w-3/5 h-3/4 rounded-md">
                 {/* Login form */}
                 <div className=" flex flex-col text-center gap-10 h-full rounded-md">

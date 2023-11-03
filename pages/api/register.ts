@@ -8,12 +8,15 @@ const registerUserSchema= z.object({
     email: z.string().regex(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g, "Invalid email"),
     password: z.string().min(5,"Minimum characters should be 5 ")
 })
-
+ 
 export default async function registerUser(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
+   console.log(req.body)
+   console.log(registerUserSchema.parse(req.body))
     const{name, email, password}= registerUserSchema.parse(req.body)
+    
 
    try {
      const userExists = await prisma.user.findUnique({

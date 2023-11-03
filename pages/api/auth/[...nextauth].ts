@@ -8,7 +8,7 @@ import { z } from "zod";
 import bcrypt from "bcryptjs"
 
 const loginUserSchema= z.object({
-  name: z.string(),
+  
   email: z.string().regex(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g, "Invalid email"),
   password: z.string().min(5,"Minimum characters should be 5 ")
 })
@@ -28,7 +28,7 @@ export const authOptions: NextAuthOptions= ({
         password:{type:'text', placeholder: "Password"}
       },
       async authorize(credentials, req) {
-        const {email, name, password}= loginUserSchema.parse(credentials)
+        const {email, password}= loginUserSchema.parse(credentials)
 
         const user = await prisma.user.findUnique({
           where: {email}
