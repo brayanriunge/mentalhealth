@@ -9,6 +9,7 @@ export default function Login(){
     const [show, setShow]=useState({password:false, cpassword: false})
 
     async function handleSubmit(e: FormEvent) {
+        e.preventDefault()
         const form = new FormData (e.target as HTMLFormElement  )
         try {
             const response = await fetch("/api/register",{
@@ -26,7 +27,7 @@ export default function Login(){
             console.log(data)
             if(!data.user) throw new Error("user exist")
 
-            signIn("credentials",{name: data.user.name, email: data.user.email, password: form.get('password'), callbackUrl:'/'})
+            signIn("credentials",{name: data.user.name, email: data.user.email, password: form.get('password'), callbackUrl:'http://localhost:3000'})
 
         } catch (error) {
             return console.error(error)
