@@ -2,10 +2,38 @@ import Image from "next/image";
 import Link from "next/link";
 import google from "@/public/Home.jpeg"
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { signIn } from "next-auth/react";
 
 export default function Login(){
     const [show, setShow]=useState({password:false, cpassword: false})
+
+    async function handleSubmit(e: FormEvent) {
+        const form = new FormData (e.target as HTMLFormElement  )
+        try {
+            const response = await fetch("/api/register",{
+                method: 'POST',
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: form.get("name"),
+                    email: form.get('email'),
+                    password: form.get('password')
+                })
+            })
+            const data = await response.json()
+            console.log(data)
+            if(!data.user) throw new Error("user exist")
+
+            signIn("credentials",{name: data.user.name, email: data.user.email, password: form.get('password'), callbackUrl:'/'})
+
+        } catch (error) {
+            return console.error(error)
+        }
+        
+    }
+
     return(
         <div className="flex max-h-full bg-blue-400 gap-16 py-10 md:h-full min-h-full  md:pb-7">
             <div className=" bg-slate-50 m-auto w-3/5 h-3/4 rounded-md">
@@ -15,7 +43,10 @@ export default function Login(){
                        <div>
                         <h1 className="font-bold text-4xl text-gray-800 font-montserrat py-4">Register</h1>
                        </div>
-                       <form className="flex flex-col gap-5 ">
+                       <form 
+                        className="flex flex-col gap-5 "
+                        onSubmit={handleSubmit}
+                       >
                         <div className="flex border border-gray-400  rounded-md relative">
                          <input
                           type="text"
