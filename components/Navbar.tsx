@@ -75,12 +75,14 @@ export default function Navbar() {
                  </Link>
                 </div>
                {/** left side */}
-               
+               <Link href={"/register"}>
                <button
                 className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
                >
                 Sign Up
               </button>
+               </Link>
+               
               </div>
             ) : (
               <button

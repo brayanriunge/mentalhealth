@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import google from "@/public/Home.jpeg"
+import google from "@/public/Homepic.jpeg"
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
