@@ -30,22 +30,45 @@ export const authOptions: NextAuthOptions= ({
       async authorize(credentials, req) {
         const {email, name, password}= loginUserSchema.parse(credentials)
 
-        const userExists = await prisma.user.findUnique({
+        const user = await prisma.user.findUnique({
           where: {email}
        })
        //check if user exists
-       if(!userExists) throw new Error("email does not exist")
+       if(!user) throw new Error("email does not exist")
 
-       const isPasswordValid = await bcrypt.compare(password, userExists.password)
+       const isPasswordValid = await bcrypt.compare(password, user.password)
        if(!isPasswordValid) throw new Error("Invalid password")
 
-        return null
+        return user
       },
     })
   ],
-  // session: {
-  //   strategy: "jwt",
-  // },
+
+  callbacks:{
+    session({token, session}){
+      session.user.id = token.id
+      return session
+    },
+    
+   async jwt({ token, account, user }) {
+    // Persist the OAuth access_token and or the user id to the token right after signin
+     if (account) {
+       token.accessToken = account.access_token
+       token.id = user.id
+      }
+     return token
+    }
+  },
+
+  pages:{
+    signIn: "/login"
+  },
+
+  session: {
+    strategy: "jwt",
+  },
+
+  secret: process.env.JWT_SECRET
 })
 
 export default NextAuth(authOptions)
