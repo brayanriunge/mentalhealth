@@ -23,7 +23,7 @@ export default function Login(){
           const response = await signIn("email", {
             email: form.get("email") as string,
             password: form.get("password") as string,
-            redirect: false, // Set this to true if you want to redirect after successful login
+            redirect: true, // Set this to true if you want to redirect after successful login
           });
       
           if (response?.error) {
@@ -35,6 +35,7 @@ export default function Login(){
           router.replace('/'); // Redirect after successful login
          } catch (error) {
           console.error(error);
+   
         }
     }
       
