@@ -33,7 +33,7 @@ export default function Login(){
           }
       
           router.replace('/'); // Redirect after successful login
-         } catch (error) {
+        } catch (error) {
           console.error(error);
    
         }
