@@ -6,7 +6,7 @@ import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
-export default function Login(){
+export default function registerUser(){
     const [show, setShow]=useState({password:false, cpassword: false})
     const router = useRouter()
 
@@ -25,16 +25,14 @@ export default function Login(){
                     password: form.get('password')
                 })
             })
-            const data = await response.json()
-            console.log(data)
-            if(!data.user) throw new Error("user exist")
+          
+            // if(!response.user) throw new Error("user exist")
 
-            if (data.status === 201) {
-                router.replace('/');
+            if (response.status === 201) {
+                router.replace('/login');
               }
               
 
-            signIn("credentials",{name: data.user.name, email: data.user.email, password: form.get('password'), callbackUrl:'/'})
 
         } catch (error) {
             return console.error(error)

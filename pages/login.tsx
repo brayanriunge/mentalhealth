@@ -18,7 +18,7 @@ export default function Login(){
 
     //google handler function
     async function handleGoogleSignin(){
-        signIn("google",{redirect: "http://localhost:3000"})
+        signIn("google",{callbackUrl: "http://localhost:3000"})
     }
 
     return(
