@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import google from "@/public/Homepic.jpeg"
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
@@ -15,6 +15,29 @@ export default function Login(){
       router.replace("/");
       return null;
     }
+
+    async function handleSubmit(e: FormEvent) {
+        e.preventDefault();
+        const form = new FormData(e.target as HTMLFormElement);
+        try {
+          const response = await signIn("email", {
+            email: form.get("email") as string,
+            password: form.get("password") as string,
+            redirect: false, // Set this to true if you want to redirect after successful login
+          });
+      
+          if (response?.error) {
+            // Handle login error
+            console.error(response.error);
+            return;
+          }
+      
+          router.replace('/dashboard'); // Redirect after successful login
+         } catch (error) {
+          console.error(error);
+        }
+    }
+      
 
     //google handler function
     async function handleGoogleSignin(){
@@ -30,7 +53,7 @@ export default function Login(){
                        <div>
                         <h1 className="font-bold text-4xl text-gray-800 font-montserrat py-4"> Login</h1>
                        </div>
-                       <form className="flex flex-col gap-5 ">
+                       <form className="flex flex-col gap-5 " onSubmit={handleSubmit}>
                         <div className="flex border border-gray-400  rounded-md relative">
                          <input
                           type="email"
