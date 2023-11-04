@@ -20,7 +20,7 @@ export default function Login(){
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
         try {
-          const response = await signIn("email", {
+          const response = await signIn("credentials", {
             email: form.get("email") as string,
             password: form.get("password") as string,
             redirect: true, // Set this to true if you want to redirect after successful login
@@ -29,10 +29,11 @@ export default function Login(){
           if (response?.error) {
             // Handle login error
             console.error(response.error);
-            return;
+          }else{
+          
+            router.push("/")
           }
       
-          router.replace('/'); // Redirect after successful login
         } catch (error) {
           console.error(error);
    
