@@ -32,7 +32,7 @@ export default function Login(){
             return;
           }
       
-          router.replace('/dashboard'); // Redirect after successful login
+          router.replace('/'); // Redirect after successful login
          } catch (error) {
           console.error(error);
         }
