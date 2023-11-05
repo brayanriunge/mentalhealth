@@ -11,10 +11,10 @@ export default function Login(){
     const { data: session } = useSession();
     const router = useRouter();
   
-    if (session) {
-      router.replace("/");
-      return null;
-    }
+    // if (session) {
+    //   router.replace("/");
+    //   return null;
+    // }
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
