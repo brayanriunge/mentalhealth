@@ -87,7 +87,7 @@ export default function Login(){
                         </div>
                         <div className="">
                             <button type="button" onClick={handleGoogleSignin} className="w-full py-3 border flex justify-between items-center gap-4  rounded-lg hover:bg-gray-300"> 
-                             <p >Sign in with Google</p>
+                             <p className="text-montserrat ml-2" >Sign in with Google</p>
                              <Image src={google} height={30} width={30} alt="google" className="rounded-full"/>
                             </button>
                         </div>
