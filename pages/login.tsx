@@ -29,10 +29,10 @@ export default function Login(){
           if (response?.error) {
             // Handle login error
             console.error(response.error);
-          }else{
+          }else{}
           
-            router.push("/")
-          }
+          //   router.push("/")
+          // }
       
         } catch (error) {
           console.error(error);
