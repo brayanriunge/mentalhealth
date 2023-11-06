@@ -2,11 +2,12 @@ import useMediaQuery from "@/hooks/userMediaQuery";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "@/public/Logo.jpeg";
 import {HiOutlineX} from "react-icons/hi"
 import {HiBars3} from "react-icons/hi2"
 import { signOut, useSession } from "next-auth/react";
+import NavbarX from "@/components/auth/NabvarX"
 
 
 export default function Navbar() {
@@ -14,8 +15,19 @@ export default function Navbar() {
   const flexStyles = "flex items-center justify-between ";
   const isAboveMediaScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-  const {data, status} = useSession()
+  const {data: session} = useSession()
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+
   
+  
+  const handleSignOut = ()=> signOut()
+  useEffect(() => {
+    if (session) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [session])
 
   return (
     <nav>
@@ -24,7 +36,7 @@ export default function Navbar() {
           <div className={`${flexStyles} w-full gap-10`}>
             {/**left side */}
             {/**put logo here  */}
-            <Image src={Logo} alt="logo" width={90} height={20} className="rounded-full" />
+            <Image src={Logo} alt="logo" width={90} height={20}  className="rounded-full" />
             <h2
               className="font-bold text-red-500 text-3xl text-montserrat"
               
@@ -77,13 +89,13 @@ export default function Navbar() {
                  </Link>
                 </div>
                {/** left side */}
-               {status === "authenticated" && data !== null && (
+               {/* {status === "authenticated" && data !== null && (
                 <>
                  <p>Welcome {data.user.name}</p>
                 </>
-               )}
+               )} */}
                
-              
+              <NavbarX isLoggedIn={isLoggedIn} onSignOut={ handleSignOut}/>
                
               </div>
             ) : (

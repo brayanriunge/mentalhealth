@@ -6,7 +6,7 @@ interface NavbarProps {
     onSignOut: ()=> void
 }
 
-const {data: session} = useSession()
+
 
 export default function Nav({isLoggedIn, onSignOut}:NavbarProps){
 
@@ -33,13 +33,17 @@ export default function Nav({isLoggedIn, onSignOut}:NavbarProps){
 
     return(
         <>
-         {isLoggedIn ? (   
+         {isLoggedIn ? (
+            <>
+            <h1></h1>
             <button
              onClick={onSignOut}
              className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
             >
                 Sign Out
             </button>
+            </>
+            
          ):(
             <Link href={"/register"}>
              <button
