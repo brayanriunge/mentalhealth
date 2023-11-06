@@ -80,21 +80,10 @@ export default function Navbar() {
                {status === "authenticated" && data !== null && (
                 <>
                  <p>Welcome {data.user.name}</p>
-                 <button
-                 onClick={()=> signOut()}
-                  className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
-                 >
-                  Sign Out
-                 </button>
                 </>
-               )} 
-               <Link href={"/register"}>
-               <button
-                className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
-               >
-                Sign Up 
-              </button>
-               </Link>
+               )}
+               
+              
                
               </div>
             ) : (
