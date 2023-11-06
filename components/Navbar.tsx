@@ -6,6 +6,7 @@ import { useState } from "react";
 import Logo from "@/public/Logo.jpeg";
 import {HiOutlineX} from "react-icons/hi"
 import {HiBars3} from "react-icons/hi2"
+import { signOut, useSession } from "next-auth/react";
 
 
 export default function Navbar() {
@@ -13,6 +14,7 @@ export default function Navbar() {
   const flexStyles = "flex items-center justify-between ";
   const isAboveMediaScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const {data, status} = useSession()
   
 
   return (
@@ -75,11 +77,22 @@ export default function Navbar() {
                  </Link>
                 </div>
                {/** left side */}
+               {status === "authenticated" && data !== null && (
+                <>
+                 <p>Welcome {data.user.name}</p>
+                 <button
+                 onClick={()=> signOut()}
+                  className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
+                 >
+                  Sign Out
+                 </button>
+                </>
+               )} 
                <Link href={"/register"}>
                <button
                 className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
                >
-                Sign Up
+                Sign Up 
               </button>
                </Link>
                
