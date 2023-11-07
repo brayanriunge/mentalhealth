@@ -42,7 +42,7 @@ export default function AddComment({ postId, fetchDetails }: any) {
   }
 
   return (
-    <section className=" ">
+    <section className="  ">
       <form className="my-2" onSubmit={createComment}>
         <h3>Add a Comment</h3>
         <div className=" flex flex-col my-8">
