@@ -8,11 +8,10 @@ import { useEffect } from "react";
 export default function Dashboard() {
   const router = useRouter();
   const { data: session } = useSession();
-  useEffect(() => {
-    if (!session) {
-      router.push("/api/auth/signin");
-    }
-  }, []);
+
+  if (!session) {
+    router.push("/api/auth/signin");
+  }
 
   return (
     <Layout>

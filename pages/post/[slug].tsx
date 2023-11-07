@@ -22,10 +22,8 @@ export default function PostDetails() {
   };
 
   useEffect(() => {
-    if (slug) {
-      fetchDetails();
-    }
-  }, [slug]);
+    fetchDetails();
+  }, []);
 
   return (
     <Layout>

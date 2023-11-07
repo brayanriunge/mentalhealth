@@ -27,14 +27,14 @@ export default function Dashboard() {
               eMental
             </h1>
             <p className="mt-8 text-montserrat  text-justify">
-              Welcome to Our Safe Space for Mental Wellness You're not alone on
-              this journey. At eMental, we understand that taking care of your
-              mental health is a courageous and vital step towards a brighter
-              tomorrow. Whether you're seeking support, information, or simply a
-              place to be heard, you've come to the right place. Feel free to
-              explore the resources, articles, and services we offer. Remember,
-              your well-being is our priority, and we're honored to be a part of
-              your journey.
+              Welcome to Our Safe Space for Mental Wellness You&apos;re not
+              alone on this journey. At eMental, we understand that taking care
+              of your mental health is a courageous and vital step towards a
+              brighter tomorrow. Whether you&apos;re seeking support,
+              information, or simply a place to be heard, you&apos;ve come to
+              the right place. Feel free to explore the resources, articles, and
+              services we offer. Remember, your well-being is our priority, and
+              we&apos;re honored to be a part of your journey.
             </p>
           </motion.div>
           {/** Actions */}
