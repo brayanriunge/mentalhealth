@@ -2,7 +2,7 @@
 import Layout from "@/components/Layout"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import { PostData } from "@/pages/articles"
+import { PostData } from "@/pages/community"
 import Post from "@/components/sections/Post"
 import AddComment from "@/components/sections/AddComment"
 
