@@ -6,12 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export default function Dashboard() {
-  const router = useRouter();
   const { data: session } = useSession();
-
-  if (!session) {
-    router.push("/api/auth/signin");
-  }
 
   return (
     <Layout>
