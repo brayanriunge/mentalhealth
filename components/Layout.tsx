@@ -7,7 +7,7 @@ type Prop = {
 
 export default function Layout({ children }: Prop) {
   return (
-    <div className=" bg-gradient-to-r from-blue-400 via-blue-600 to-green-400">
+    <div className=" bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 min-h-screen">
       <Navbar />
       <Toaster
         toastOptions={{
