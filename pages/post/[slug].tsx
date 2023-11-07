@@ -23,7 +23,7 @@ export default function PostDetails() {
 
   useEffect(() => {
     fetchDetails();
-  }, []);
+  }, [slug]);
 
   return (
     <Layout>
@@ -37,8 +37,8 @@ export default function PostDetails() {
             comment={postData?.comment}
           />
           <AddComment postId={slug} fetchDetails={fetchDetails} />
-          {postData?.comment.map((comment) => (
-            <section className="pb-2">
+          <section className="pb-2">
+            {postData?.comment.map((comment) => (
               <div className="p-8 mt-6 rounded-md bg-white " key={comment.id}>
                 <div className="flex items-center gap-2">
                   <h3 className="font-bold">{comment.user.name}</h3>
@@ -46,8 +46,8 @@ export default function PostDetails() {
                 </div>
                 <div className="mt-8">{comment.message}</div>
               </div>
-            </section>
-          ))}
+            ))}
+          </section>
         </section>
       )}
     </Layout>
