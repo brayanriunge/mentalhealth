@@ -10,27 +10,6 @@ interface NavbarProps {
 
 export default function Nav({isLoggedIn, onSignOut}:NavbarProps){
 
-    // if(session){
-    //     <>
-    //        <button
-    //          onClick={}
-    //          className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
-    //         >
-    //             Sign Out
-    //         </button>
-    //     </>
-    // } else{
-    //     <>
-    //        <Link href={"/register"}>
-    //            <button
-    //             className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500"
-    //            >
-    //             Sign Up 
-    //           </button>
-    //         </Link>
-    //     </>
-    // }
-
     return(
         <>
          {isLoggedIn ? (
