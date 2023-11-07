@@ -17,16 +17,13 @@ export default function AddComment({ postId, fetchDetails }: any) {
     setMessage("");
 
     try {
-      const response = await fetch(
-        "http://localhost:3000/api/posts/addComment",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ message, id: postId }),
-        }
-      );
+      const response = await fetch("/api/posts/addComment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message, id: postId }),
+      });
       if (!response.ok) {
         throw new Error(`Http Error! ${response.status}`);
       } else {

@@ -6,7 +6,7 @@ export default function MyPost() {
   const [editPosts, setEditPosts] = useState<AuthPosts>();
   const fetchMyPost = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/posts/authPost");
+      const response = await fetch("/api/posts/authPost");
       const data = await response.json();
       console.log(data);
       setEditPosts(data);
