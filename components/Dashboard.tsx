@@ -4,7 +4,7 @@ import Home from "@/public/home.jpeg";
 
 export default function Dashboard() {
   return (
-    <section className="gap-16 bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 py-10 md:h-full min-h-full mt-8 md:pb-0">
+    <section className="gap-16 bg-gradient-to-r from-blue-400 via-blue-600 to-green-400 py-10 md:h-full min-h-full  md:mt-8 md:pb-0">
       <motion.div className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6">
         {/**Main Header */}
         <div className="z-10 mt-32 md:basis-3/5">

@@ -14,7 +14,7 @@ export default function Dashboard() {
         <h1 className="text-2xl text-montserrat font-bold">
           welcome back {session?.user?.name}
         </h1>
-        <p className="text-montserrat "> My posts:</p>
+        <p className="text-montserrat"> My posts:</p>
         <MyPost />
       </section>
     </Layout>
