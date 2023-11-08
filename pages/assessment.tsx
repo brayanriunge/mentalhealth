@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Roboto } from "next/font/google";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 const roboto = Roboto({
   weight: "400",
@@ -73,6 +74,7 @@ const MentalHealthAssessment: React.FC = () => {
   const { data: session } = useSession();
   useEffect(() => {
     if (!session) {
+      toast.error("you have to log in first.");
       router.push("/register");
     }
   }, []);
