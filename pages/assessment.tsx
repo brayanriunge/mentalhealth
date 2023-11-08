@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Roboto } from "next/font/google";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -71,9 +71,12 @@ const questions: Question[] = [
 const MentalHealthAssessment: React.FC = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  if (!session) {
-    router.push("/register");
-  }
+  useEffect(() => {
+    if (!session) {
+      router.push("/register");
+    }
+  }, []);
+
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
 
   const handleResponseChange = (questionId: string, option: string) => {
