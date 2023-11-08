@@ -4,43 +4,45 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Logo from "@/public/Logo.jpeg";
-import {HiOutlineX} from "react-icons/hi"
-import {HiBars3} from "react-icons/hi2"
+import { HiOutlineX } from "react-icons/hi";
+import { HiBars3 } from "react-icons/hi2";
 import { signOut, useSession } from "next-auth/react";
-import NavbarX from "@/components/auth/NabvarX"
-
+import NavbarX from "@/components/auth/NabvarX";
 
 export default function Navbar() {
   const router = useRouter();
   const flexStyles = "flex items-center justify-between ";
   const isAboveMediaScreens = useMediaQuery("(min-width: 1060px)");
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-  const {data: session} = useSession()
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+  const { data: session } = useSession();
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-  
-  
-  const handleSignOut = ()=> signOut()
+  const handleSignOut = () => signOut();
   useEffect(() => {
     if (session) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
     }
-  }, [session])
+  }, [session]);
 
   return (
     <nav>
-      <div className={`${flexStyles} w-full top-0 z-30 fixed py-2  bg-primary-gray-200 shadow`}>
+      <div
+        className={`${flexStyles} w-full top-0 z-30 fixed py-2  bg-primary-gray-200 shadow`}
+      >
         <div className={`${flexStyles} mx-auto w-5/6`}>
           <div className={`${flexStyles} w-full gap-10`}>
             {/**left side */}
             {/**put logo here  */}
-            <Image src={Logo} alt="logo" width={90} height={20}  className="rounded-full" />
-            <h2
-              className="font-bold text-red-500 text-3xl text-montserrat"
-              
-            >
+            <Image
+              src={Logo}
+              alt="logo"
+              width={90}
+              height={20}
+              className="rounded-full"
+            />
+            <h2 className="font-bold text-red-500 text-3xl text-montserrat">
               eMental {""}
             </h2>
 
@@ -48,60 +50,79 @@ export default function Navbar() {
             {isAboveMediaScreens ? (
               <div className={`${flexStyles} w-full text-montserrat`}>
                 <div
-                  className={`${flexStyles} text-sm text-primary-gray-500  gap-8`}>
+                  className={`${flexStyles} text-sm text-primary-gray-500  gap-8`}
+                >
                   <Link legacyBehavior href={"/"}>
                     <a
                       className={`${
-                        router.pathname === "/" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
+                        router.pathname === "/"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
                       Home
                     </a>
                   </Link>
                   <Link legacyBehavior href={"/assessment"}>
                     <a
                       className={`${
-                        router.pathname === "/assessment" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
-                     Assessment 
+                        router.pathname === "/assessment"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
+                      Assessment
                     </a>
                   </Link>
                   <Link legacyBehavior href="/articles">
-                  <a className={`${
-                        router.pathname === "/articles" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
-                   Articles
-                  </a>
-                 </Link>
-                 
-                 <Link legacyBehavior href="/community">
-                   <a className={`${
-                        router.pathname === "/community" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
-                     Community
-                   </a>
-                 </Link>
-                 <Link legacyBehavior href="/#contactus">
-                  <a className={`${
-                        router.pathname === "/#contactus" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
-                   Contact Us
-                  </a>
-                 </Link>
+                    <a
+                      className={`${
+                        router.pathname === "/articles"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
+                      Articles
+                    </a>
+                  </Link>
+
+                  <Link legacyBehavior href="/community">
+                    <a
+                      className={`${
+                        router.pathname === "/community"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
+                      Community
+                    </a>
+                  </Link>
+                  <Link legacyBehavior href="/#contactus">
+                    <a
+                      className={`${
+                        router.pathname === "/#contactus"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
+                      Contact Us
+                    </a>
+                  </Link>
                 </div>
-               {/** left side */}
-               {/* {status === "authenticated" && data !== null && (
+                {/** left side */}
+                {/* {status === "authenticated" && data !== null && (
                 <>
                  <p>Welcome {data.user.name}</p>
                 </>
                )} */}
-               
-              <NavbarX isLoggedIn={isLoggedIn} onSignOut={ handleSignOut}/>
-               
+
+                <NavbarX isLoggedIn={isLoggedIn} onSignOut={handleSignOut} />
               </div>
             ) : (
               <button
                 className="rounded-full p-2 bg-secondary-gray-300"
-                onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                onClick={() => setIsMenuToggled(!isMenuToggled)}
+              >
                 <HiBars3 className="h-6 w-6 " />
               </button>
             )}
@@ -120,8 +141,11 @@ export default function Navbar() {
                   <Link legacyBehavior href={"/"}>
                     <a
                       className={`${
-                        router.pathname === "/" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
+                        router.pathname === "/"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
                       Home
                     </a>
                   </Link>
@@ -129,42 +153,48 @@ export default function Navbar() {
                     <a
                       className={`${
                         router.pathname === "/assessment"
-                          ? "text-red-800" : "text-gray-20"
-                        } hover:text-red-600`}>
-                       Assessment
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
+                      Assessment
                     </a>
                   </Link>
                   <Link legacyBehavior href={"/articles"}>
                     <a
                       className={`${
-                        router.pathname === "/articles" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
-                      Articles 
+                        router.pathname === "/articles"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
+                      Articles
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/Community"}>
+                  <Link legacyBehavior href={"/community"}>
                     <a
                       className={`${
-                        router.pathname === "/Community" ? "text-red-800" : "text-gray-20"
-                      } hover:text-red-600`}>
+                        router.pathname === "/community"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
                       Community
                     </a>
                   </Link>
-                  <Link legacyBehavior href={"/contactus"}>
+                  <Link legacyBehavior href={"/#contactus"}>
                     <a
                       className={`${
-                        router.pathname === "/contactus"
-                          ? "text-red-800" : "text-gray-20"
-                        } hover:text-red-600`}>
-                       Contact Us
+                        router.pathname === "/#contactus"
+                          ? "text-red-800"
+                          : "text-gray-20"
+                      } hover:text-red-600`}
+                    >
+                      Contact Us
                     </a>
                   </Link>
-                  
-                  <button
-                   className="rounded-md  px-8 p-2 bg-primary-gray-500"
-                  >
-                   Sign Up
-                  </button>
+
+                  <NavbarX isLoggedIn={isLoggedIn} onSignOut={handleSignOut} />
                 </div>
               </div>
             )}
