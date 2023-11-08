@@ -72,7 +72,6 @@ const MentalHealthAssessment: React.FC = () => {
   const router = useRouter();
   const { data: session } = useSession();
   if (!session) {
-    alert("You have to register first");
     router.push("/register");
   }
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
