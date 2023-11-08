@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
 import { useState } from "react";
 import { Roboto } from "next/font/google";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const roboto = Roboto({
   weight: "400",
@@ -67,6 +69,12 @@ const questions: Question[] = [
 ];
 
 const MentalHealthAssessment: React.FC = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
+  if (!session) {
+    alert("You have to register first");
+    router.push("/register");
+  }
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
 
   const handleResponseChange = (questionId: string, option: string) => {
