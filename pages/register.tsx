@@ -37,8 +37,8 @@ export default function RegisterUser() {
   }
 
   return (
-    <div className="flex max-h-full bg-blue-400 gap-16 py-10 md:h-full min-h-full  md:pb-14">
-      <div className=" bg-slate-50 m-auto w-3/5 h-3/4 rounded-md">
+    <div className="flex  bg-blue-400 gap-16 py-10 md:h-full min-h-full  md:pb-14">
+      <div className=" bg-slate-50 m-auto  h-3/4 rounded-md mx-auto p-6  max-w-md w-full">
         {/* Login form */}
         <div className=" flex flex-col text-center gap-10 h-full rounded-md">
           <div className="m-auto px-4 py-4">
