@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Home from "@/public/home.jpeg";
+import Link from "next/link";
 
 export default function Dashboard() {
   return (
@@ -49,9 +50,11 @@ export default function Dashboard() {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <button className="rounded-md mb-4 bg-primary-gray-500 px-10 py-2  hover:text-white ">
-              Get started
-            </button>
+            <Link href={"/register"}>
+              <button className="rounded-md mb-4 text-montserrat px-8 p-2 bg-primary-gray-500">
+                Get Started
+              </button>
+            </Link>
           </motion.div>
         </div>
         {/** IMAGE */}

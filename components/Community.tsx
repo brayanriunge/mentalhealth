@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import community from "@/public/community.jpeg";
+import Link from "next/link";
 
 export default function Community() {
   return (
-    <section className="gap-16 py-4 md:h-full pb-4">
+    <section className="gap-16  md:h-full pb-4">
       <motion.div className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6">
         {/**Main Header */}
         <div className="z-10 mt-32 md:basis-3/5">
@@ -45,15 +46,17 @@ export default function Community() {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <button className="rounded-md mb-4 bg-primary-gray-500 px-10 py-2  hover:text-white ">
-              Join Now
-            </button>
+            <Link href={"/community"}>
+              <button className="rounded-md mb-4 text-montserrat px-8 p-2 bg-primary-gray-500">
+                Join Now
+              </button>
+            </Link>
           </motion.div>
         </div>
         {/** IMAGE */}
         <div
           className="flex basis-3/5 justify-center md:z-10
-            md:ml-40 md:mt-16 md:justify-items-end"
+            md:ml-40 md:mt-16 md:justify-items-end "
         >
           <Image
             src={community}
