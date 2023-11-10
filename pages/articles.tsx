@@ -25,7 +25,7 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
             <p>Author: {article.author}</p>
             <p>{article.content.slice(0, 100)}...</p>
             <Link href={`/article/${article.id}`}>
-              <a>Read more</a>
+              <p>Read more</p>
             </Link>
           </div>
         ))}
