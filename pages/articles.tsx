@@ -18,9 +18,9 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
   return (
     <div>
       <h1>Articles</h1>
-      <div className="article-list">
+      <div className="">
         {articles.map((article) => (
-          <div key={article.id} className="article-card">
+          <div key={article.id} className="">
             <h2>{article.title}</h2>
             <p>Author: {article.author}</p>
             <p>{article.content.slice(0, 100)}...</p>
