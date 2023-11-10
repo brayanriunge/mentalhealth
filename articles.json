@@ -1,0 +1,22 @@
+{
+    "articles": [
+      {
+        "id": 1,
+        "title": "Getting Started with TypeScript and Next.js",
+        "content": "This is a sample article about TypeScript and Next.js.",
+        "author": "John Doe"
+      },
+      {
+        "id": 2,
+        "title": "Building a RESTful API with Node.js and Express",
+        "content": "Learn how to create a RESTful API using Node.js and Express.",
+        "author": "Jane Smith"
+      },
+      {
+        "id": 3,
+        "title": "Introduction to React Hooks",
+        "content": "Explore the basics of React Hooks for state management.",
+        "author": "Bob Johnson"
+      }
+    ]
+  }
