@@ -4,6 +4,7 @@ import { NextPage } from "next";
 import { getArticles } from "@/hooks/getData";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
+import CardArticle from "@/components/Article/CardArticles";
 
 interface Article {
   id: number;
@@ -44,19 +45,15 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
           >
             <h1>Articles</h1>
             <div>
-              {articles.map((article) => (
-                <>
-                  <div className="mb-4 flex justify-center" key={article.id}>
-                    <h2>{article.title}</h2>
-                  </div>
-                  <h4 className="font-bold">Author: {article.author}</h4>
-                  <p className="my-3">{article.content}</p>
-                  <p>{article.content.slice(0, 100)}...</p>
-                  <Link href={`/article/${article.id}`}>
-                    <p>Read more</p>
-                  </Link>
-                </>
-              ))}
+              {/* {articles.map((article) => (
+                <CardArticle
+                  key={article.id}
+                  author={article.author}
+                  title={article.title}
+                  content={article.content}
+                  id={article.id}
+                />
+              ))} */}
             </div>
           </motion.div>
           {/* <div>
