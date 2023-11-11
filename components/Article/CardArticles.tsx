@@ -23,7 +23,7 @@ export default function CardArticle({ id, author, content, title }: Props) {
         <h2>{title}</h2>
       </div>
       <h4 className="font-bold">Author: {author}</h4>
-      <p className="my-3">{content}</p>
+
       <p>{content.slice(0, 100)}...</p>
       <Link href={`/article/${id}`}>
         <p>Read more</p>
