@@ -29,9 +29,9 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
   return (
     <Layout>
       <section className=" mx-auto mt-16  w-5/6 py-20 min-h-full">
-        <div>
-          <h1>{article.title}</h1>
-          <p>Author: {article.author}</p>
+        <div className="bg-white rounded-md shadow-md p-5 text-montserrat">
+          <h1 className="text-bold text-2xl">{article.title}</h1>
+          <p className="text-lg">Author: {article.author}</p>
           <p>{article.content}</p>
         </div>
       </section>
