@@ -1,5 +1,3 @@
-// pages/index.tsx
-import Link from "next/link";
 import { NextPage } from "next";
 import { getArticles } from "@/hooks/getData";
 import Layout from "@/components/Layout";
@@ -16,10 +14,7 @@ interface Article {
 interface HomeProps {
   articles: Article[];
 }
-const childVariant = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1 },
-};
+
 const container = {
   hidden: {},
   visible: {
@@ -47,22 +42,6 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
               id={article.id}
             />
           ))}
-
-          {/* <div>
-          <h1>Articles</h1>
-          <div className="">
-            {articles.map((article) => (
-              <div key={article.id} className="">
-                <h2>{article.title}</h2>
-                <p>Author: {article.author}</p>
-                <p>{article.content.slice(0, 100)}...</p>
-                <Link href={`/article/${article.id}`}>
-                  <p>Read more</p>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div> */}
         </motion.div>
       </section>
     </Layout>

@@ -2,6 +2,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { getArticles } from "@/hooks/getData";
+import Layout from "@/components/Layout";
 
 interface Article {
   id: number;
@@ -26,11 +27,15 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
   }
 
   return (
-    <div>
-      <h1>{article.title}</h1>
-      <p>Author: {article.author}</p>
-      <p>{article.content}</p>
-    </div>
+    <Layout>
+      <section className=" mx-auto mt-16  w-5/6 py-20 min-h-full">
+        <div>
+          <h1>{article.title}</h1>
+          <p>Author: {article.author}</p>
+          <p>{article.content}</p>
+        </div>
+      </section>
+    </Layout>
   );
 };
 
