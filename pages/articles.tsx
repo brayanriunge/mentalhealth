@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { NextPage } from "next";
 import { getArticles } from "@/hooks/getData";
+import Layout from "@/components/Layout";
 
 interface Article {
   id: number;
@@ -16,21 +17,25 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ articles }) => {
   return (
-    <div>
-      <h1>Articles</h1>
-      <div className="">
-        {articles.map((article) => (
-          <div key={article.id} className="">
-            <h2>{article.title}</h2>
-            <p>Author: {article.author}</p>
-            <p>{article.content.slice(0, 100)}...</p>
-            <Link href={`/article/${article.id}`}>
-              <p>Read more</p>
-            </Link>
+    <Layout>
+      <section className="mx-auto min-h-full w-5/6 py-20 mb-4">
+        {/* <div>
+          <h1>Articles</h1>
+          <div className="">
+            {articles.map((article) => (
+              <div key={article.id} className="">
+                <h2>{article.title}</h2>
+                <p>Author: {article.author}</p>
+                <p>{article.content.slice(0, 100)}...</p>
+                <Link href={`/article/${article.id}`}>
+                  <p>Read more</p>
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div> */}
+      </section>
+    </Layout>
   );
 };
 
