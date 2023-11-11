@@ -31,7 +31,6 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
   return (
     <Layout>
       <section className="mx-auto min-h-full w-5/6 py-32 mb-4">
-        <h1>Articles</h1>
         <motion.div
           className="md:flex items-center justify-between gap-8 mt-2"
           initial="hidden"
@@ -39,23 +38,16 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
           viewport={{ once: true, amount: 0.5 }}
           variants={container}
         >
-          <motion.div
-            variants={childVariant}
-            className="mt-5 rounded-md border-2 border-yellow-400 py-16 px-5 text-center"
-          >
-            <h1>Articles</h1>
-            <div>
-              {/* {articles.map((article) => (
-                <CardArticle
-                  key={article.id}
-                  author={article.author}
-                  title={article.title}
-                  content={article.content}
-                  id={article.id}
-                />
-              ))} */}
-            </div>
-          </motion.div>
+          {articles.map((article) => (
+            <CardArticle
+              key={article.id}
+              author={article.author}
+              title={article.title}
+              content={article.content}
+              id={article.id}
+            />
+          ))}
+
           {/* <div>
           <h1>Articles</h1>
           <div className="">
