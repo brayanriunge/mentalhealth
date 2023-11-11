@@ -58,7 +58,7 @@ export default function Article() {
         </p>
       </motion.div>
 
-      {/**Benefits */}
+      {/**Articles */}
 
       <motion.div
         className="md:flex items-center justify-between gap-8 mt-2"
