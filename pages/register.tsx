@@ -6,6 +6,7 @@ import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { ZodError } from "zod";
+import { error } from "console";
 
 export default function RegisterUser() {
   const [show, setShow] = useState({ password: false, cpassword: false });
@@ -106,6 +107,11 @@ export default function RegisterUser() {
                   <HiFingerPrint className="h-[25px] w-[25px]" />
                 </span>
               </div>
+              {errors?.errors.map((error, index) => (
+                <div>
+                  <p key={index}>{error.message}</p>
+                </div>
+              ))}
               <div className="flex border border-gray-400  rounded-md relative ">
                 <input
                   type={`${show.cpassword ? "text" : "password"}`}
