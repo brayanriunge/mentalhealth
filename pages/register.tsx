@@ -74,6 +74,7 @@ export default function RegisterUser() {
               <div className="flex border border-gray-400  rounded-md relative">
                 <input
                   type="text"
+                  required={true}
                   name="name"
                   placeholder="Username"
                   className="w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none "
@@ -85,6 +86,7 @@ export default function RegisterUser() {
               <div className="flex border border-gray-400  rounded-md relative">
                 <input
                   type="email"
+                  required={true}
                   name="email"
                   placeholder="Email"
                   className="w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none "
@@ -97,6 +99,7 @@ export default function RegisterUser() {
                 <input
                   type={`${show.password ? "text" : "password"}`}
                   name="password"
+                  required={true}
                   placeholder="Password"
                   className="w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none"
                 />
@@ -116,6 +119,7 @@ export default function RegisterUser() {
                 <input
                   type={`${show.cpassword ? "text" : "password"}`}
                   name="cpassword"
+                  required={true}
                   placeholder=" Confirm Password"
                   className="w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none"
                 />

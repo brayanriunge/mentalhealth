@@ -45,7 +45,6 @@ export default async function registerUser(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log(req.body);
   console.log(registerUserSchema.parse(req.body));
   const { name, email, password } = registerUserSchema.parse(req.body);
 
