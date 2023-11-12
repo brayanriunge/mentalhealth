@@ -9,9 +9,19 @@ import bcrypt from "bcryptjs";
 
 const loginUserSchema = z.object({
   email: z
-    .string()
-    .regex(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g, "Invalid email"),
-  password: z.string().min(5, "Minimum characters should be 5 "),
+    .string({
+      required_error: "Email is required",
+      invalid_type_error: "Email must be a string",
+    })
+    .email("Invalid email address")
+    .min(1, { message: "Required" }),
+  password: z
+    .string({
+      required_error: "Password is required",
+      invalid_type_error: "Password must be a string",
+    })
+    .min(8, { message: "Password must be greater than 8 characters long" })
+    .max(20, { message: "Password must be less than 20 characters long" }),
 });
 
 export const authOptions: NextAuthOptions = {
