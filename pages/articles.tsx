@@ -25,7 +25,7 @@ const container = {
 const Home: NextPage<HomeProps> = ({ articles }) => {
   return (
     <Layout>
-      <section className="mx-auto min-h-full w-5/6 py-32 mb-4">
+      <section className="mx-auto min-h-full w-5/6 py-32 mb-0">
         <motion.div
           className="md:flex items-center justify-between gap-8 mt-2"
           initial="hidden"
