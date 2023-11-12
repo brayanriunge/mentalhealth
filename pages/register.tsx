@@ -111,9 +111,7 @@ export default function RegisterUser() {
                 </span>
               </div>
               {errors?.errors.map((error, index) => (
-                <div>
-                  <p key={index}>{error.message}</p>
-                </div>
+                <p key={index}>{error.message}</p>
               ))}
               <div className="flex border border-gray-400  rounded-md relative ">
                 <input
