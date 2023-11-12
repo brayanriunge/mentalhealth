@@ -35,7 +35,7 @@ const registerUserSchema = z
   })
   .refine((data) => data.password === data.cpassword, {
     message: "Passwords do not match",
-    path: ["confirm_password"],
+    path: ["cpassword"],
   });
 
 export default async function registerUser(
@@ -75,7 +75,20 @@ export default async function registerUser(
         return res.status(500).json({ message: "failed to register user" });
       }
     } catch (error) {
-      return res.status(500).json({ message: "Server error try again later" });
+      if (error instanceof z.ZodError) {
+        // Handle Zod validation errors
+        const issues = error.errors.map((issue) => ({
+          code: issue.code,
+          message: issue.message,
+        }));
+        return res.status(400).json({ issues });
+      } else {
+        // Handle other server errors
+        console.error(error);
+        return res
+          .status(500)
+          .json({ message: "Server error, try again later" });
+      }
     }
   }
 }

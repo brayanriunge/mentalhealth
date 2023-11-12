@@ -5,10 +5,13 @@ import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
+import { ZodError } from "zod";
 
 export default function RegisterUser() {
   const [show, setShow] = useState({ password: false, cpassword: false });
   const router = useRouter();
+  const [serverErrors, setServerErrors] = useState("");
+  const [errors, setErrors] = useState<ZodError | null>(null);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -26,13 +29,20 @@ export default function RegisterUser() {
         }),
       });
 
-      // if(!response.user) throw new Error("user exist")
+      if (response.status === 409)
+        setServerErrors("Email is already registered");
+
+      if (response.status === 500)
+        setServerErrors("Server error, try again later");
 
       if (response.status === 201) {
         router.replace("/login");
       }
     } catch (error) {
-      return console.error(error);
+      if (error instanceof ZodError) {
+        console.log("Form validate errors:", error.errors);
+        setErrors(errors);
+      }
     }
   }
   //google handler function
@@ -51,6 +61,14 @@ export default function RegisterUser() {
                 Register
               </h1>
             </div>
+            {serverErrors && (
+              <div
+                className="mb-4 rounded-lg border border-red-600 bg-red-50 p-4 text-sm text-red-800"
+                role="alert"
+              >
+                {serverErrors}
+              </div>
+            )}
             <form className="flex flex-col gap-5 " onSubmit={handleSubmit}>
               <div className="flex border border-gray-400  rounded-md relative">
                 <input
@@ -113,6 +131,14 @@ export default function RegisterUser() {
                   Register
                 </button>
               </div>
+              {errors && (
+                <div className="text-red-500 mt-2">
+                  {/* Display Zod issues messages */}
+                  {errors.issues.map((issue, index) => (
+                    <p key={index}>{issue.message}</p>
+                  ))}
+                </div>
+              )}
               <div className="">
                 <button
                   type="button"
