@@ -32,7 +32,11 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
         <div className="bg-white rounded-md shadow-md p-5 text-montserrat">
           <h1 className="text-bold text-2xl">{article.title}</h1>
           <p className="text-lg">Author: {article.author}</p>
-          <p>{article.content}</p>
+          <div>
+            {article.content.split("\n\n").map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </section>
     </Layout>
