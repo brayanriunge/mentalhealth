@@ -35,6 +35,10 @@ export default function RegisterUser() {
       return console.error(error);
     }
   }
+  //google handler function
+  async function handleGoogleSignin() {
+    signIn("google", { callbackUrl: "/" });
+  }
 
   return (
     <div className="flex  bg-blue-400 gap-16 py-10 md:h-full min-h-full  mb-0">
@@ -112,9 +116,10 @@ export default function RegisterUser() {
               <div className="">
                 <button
                   type="button"
+                  onClick={handleGoogleSignin}
                   className="w-full py-3 border flex justify-between items-center gap-4  rounded-lg hover:bg-gray-300"
                 >
-                  <p>Sign in with Google</p>
+                  <p className="text-montserrat ml-2">Sign in with Google</p>
                   <Image
                     src={google}
                     height={30}
