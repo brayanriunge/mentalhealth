@@ -29,7 +29,7 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
   const { data: session } = useSession();
   const router = useRouter();
   useEffect(() => {
-    if (typeof window !== "undefined" && !session) {
+    if (!session) {
       router.push("/register");
       alert("Please Sign In First");
     }
