@@ -73,11 +73,11 @@ const MentalHealthAssessment: React.FC = () => {
   const router = useRouter();
   const { data: session } = useSession();
   useEffect(() => {
-    if (!session) {
-      toast.error("you have to log in first.");
+    if (typeof window !== "undefined" && !session) {
       router.push("/register");
+      alert("Please Sign In First");
     }
-  }, []);
+  }, [session, router]);
 
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
 

@@ -3,6 +3,9 @@ import { getArticles } from "@/hooks/getData";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import CardArticle from "@/components/Article/CardArticles";
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 interface Article {
   id: number;
@@ -23,6 +26,15 @@ const container = {
 };
 
 const Home: NextPage<HomeProps> = ({ articles }) => {
+  const { data: session } = useSession();
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== "undefined" && !session) {
+      router.push("/register");
+      alert("Please Sign In First");
+    }
+  }, [session, router]);
+
   return (
     <Layout>
       <section className="mx-auto min-h-full w-5/6 py-32 mb-0">
