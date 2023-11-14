@@ -28,9 +28,7 @@ export default function RegisterUser() {
     formState: { errors },
   } = useForm<FormValues>({ resolver: zodResolver(registerUserSchema) });
 
-  async function fetchPost(e: FormEvent, values: FormValues) {
-    e.preventDefault();
-    const form = new FormData(e.target as HTMLFormElement);
+  async function onSubmit(values: FormValues) {
     try {
       const response = await fetch("/api/register", {
         method: "POST",
@@ -41,7 +39,8 @@ export default function RegisterUser() {
           values,
         }),
       });
-
+      const data = await response.json();
+      console.log(data);
       if (response.status === 409)
         setServerErrors("Email is already registered");
 
@@ -81,7 +80,10 @@ export default function RegisterUser() {
                 {serverErrors}
               </div>
             )}
-            <form className="flex flex-col gap-5">
+            <form
+              className="flex flex-col gap-5"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div className="flex border border-gray-400  rounded-md relative">
                 <input
                   type="text"
@@ -178,6 +180,15 @@ export default function RegisterUser() {
                   {errors.cpassword.message}
                 </span>
               )}
+              <div className="">
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-500 rounded-md to-indigo-500 py-3 text-gray-50 text-lg
+                            hover:bg-gradient-to-r  hover:from-gray-50 hover:to-gray-100 hover:border-blue-500 hover:text-gray-700 hover:border"
+                >
+                  Register
+                </button>
+              </div>
               <div className="">
                 <button
                   type="button"
