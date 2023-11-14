@@ -39,21 +39,22 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
     <Layout>
       <section className="mx-auto min-h-full w-5/6 py-32 mb-0">
         <motion.div
-          className="grid  grid-cols-3 items-center justify-between gap-8 mt-2"
+          className="grid  md:grid-cols-3 items-center justify-between gap-8 mt-2"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={container}
         >
-          {articles.map((article) => (
-            <CardArticle
-              key={article.id}
-              author={article.author}
-              title={article.title}
-              content={article.content}
-              id={article.id}
-            />
-          ))}
+          {articles &&
+            articles.map((article) => (
+              <CardArticle
+                key={article.id}
+                author={article.author}
+                title={article.title}
+                content={article.content}
+                id={article.id}
+              />
+            ))}
         </motion.div>
       </section>
     </Layout>
