@@ -117,13 +117,41 @@ export default function RegisterUser() {
             } w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none `}
             {...register("password")}
           />
-          <span className="icon flex items-center px-4 ">
-            <HiAtSymbol className="h-[25px] w-[25px]" />
+          <span
+            className="icon flex items-center px-4  "
+            onClick={() => setShow({ ...show, password: !show.password })}
+          >
+            <HiFingerPrint className="h-[25px] w-[25px]" />
           </span>
         </div>
         {errors.password?.message && (
           <span className="text-xs text-red-600">
             {errors.password.message}
+          </span>
+        )}
+        <div className="flex border border-gray-400  rounded-md relative">
+          <input
+            type={`${show.cpassword ? "text" : "password"}`}
+            id="cpassword"
+            required
+            placeholder="CONFIRM PASSWORD"
+            className={`${
+              errors.password?.message
+                ? `focus:border-red-600`
+                : `focus:border-gray-900`
+            } w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none `}
+            {...register("cpassword")}
+          />
+          <span
+            className="icon flex items-center px-4  "
+            onClick={() => setShow({ ...show, cpassword: !show.cpassword })}
+          >
+            <HiFingerPrint className="h-[25px] w-[25px]" />
+          </span>
+        </div>
+        {errors.cpassword?.message && (
+          <span className="text-xs text-red-600">
+            {errors.cpassword.message}
           </span>
         )}
       </form>
