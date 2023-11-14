@@ -74,7 +74,7 @@ export default function RegisterUser() {
               errors.name?.message
                 ? `focus:border-red-600`
                 : `focus:border-gray-900`
-            } `}
+            } w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none `}
             {...register("name")}
           />
           <span className="icon flex items-center px-4 ">
@@ -83,6 +83,48 @@ export default function RegisterUser() {
         </div>
         {errors.name?.message && (
           <span className="text-xs text-red-600">{errors.name.message}</span>
+        )}
+        <div className="flex border border-gray-400  rounded-md relative">
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="EMAIL"
+            className={`${
+              errors.email?.message
+                ? `focus:border-red-600`
+                : `focus:border-gray-900`
+            } w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none `}
+            {...register("email")}
+          />
+          <span className="icon flex items-center px-4 ">
+            <HiAtSymbol className="h-[25px] w-[25px]" />
+          </span>
+        </div>
+        {errors.email?.message && (
+          <span className="text-xs text-red-600">{errors.email.message}</span>
+        )}
+        <div className="flex border border-gray-400  rounded-md relative">
+          <input
+            type={`${show.password ? "text" : "password"}`}
+            id="password"
+            required
+            placeholder="PASSWORD"
+            className={`${
+              errors.password?.message
+                ? `focus:border-red-600`
+                : `focus:border-gray-900`
+            } w-full px-6 py-4 rounded-xl bg-slate-50 focus:outline-none border-none `}
+            {...register("password")}
+          />
+          <span className="icon flex items-center px-4 ">
+            <HiAtSymbol className="h-[25px] w-[25px]" />
+          </span>
+        </div>
+        {errors.password?.message && (
+          <span className="text-xs text-red-600">
+            {errors.password.message}
+          </span>
         )}
       </form>
     </div>
