@@ -7,6 +7,8 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { ZodError } from "zod";
 import { useForm } from "react-hook-form";
+import { registerUserSchema } from "@/util/validate";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 type FormValues = {
   name: string;
@@ -24,7 +26,7 @@ export default function RegisterUser() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>();
+  } = useForm<FormValues>({ resolver: zodResolver(registerUserSchema) });
 
   async function fetchPost(e: FormEvent, values: FormValues) {
     e.preventDefault();
