@@ -20,7 +20,9 @@ export default function Nav({ isLoggedIn, onSignOut }: NavbarProps) {
             Sign Out
           </button>
           <Link href={"/dashboard"}>
-            <CgProfile className="h-[64px] w-[64px]" />
+            <button className="rounded-md text-montserrat px-8 p-2 bg-primary-gray-500">
+              Dashboard
+            </button>
           </Link>
         </>
       ) : (
