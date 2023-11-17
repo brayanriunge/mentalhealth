@@ -11,6 +11,7 @@ export default function Login() {
   const [show, setShow] = useState(false);
   const { data: session } = useSession();
   const router = useRouter();
+  const [serverErrors, setServerErrors] = useState("");
 
   // if (session) {
   //   router.replace("/");
@@ -28,7 +29,7 @@ export default function Login() {
       });
 
       if (response?.status === 401) {
-        toast.error("Invalid Password");
+        setServerErrors("Invalid Password or email does not exist");
       }
 
       if (response?.error) {
@@ -60,6 +61,14 @@ export default function Login() {
                 Login
               </h1>
             </div>
+            {serverErrors && (
+              <div
+                className="mb-4 rounded-lg border border-red-600 bg-red-50 p-4 text-sm text-red-800"
+                role="alert"
+              >
+                {serverErrors}
+              </div>
+            )}
             <form className="flex flex-col gap-5 " onSubmit={handleSubmit}>
               <div className="flex border border-gray-400  rounded-md relative">
                 <input
