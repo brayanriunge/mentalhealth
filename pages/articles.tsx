@@ -6,6 +6,7 @@ import CardArticle from "@/components/Article/CardArticles";
 import { Suspense, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Loading from "@/components/Loading";
 
 interface Article {
   id: number;

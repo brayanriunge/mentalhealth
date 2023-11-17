@@ -23,6 +23,7 @@
     "react-hook-form": "^7.48.2",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
+    "react-loader-spinner": "^5.4.5",
     "suspense": "^0.0.50",
     "zod": "^3.22.4"
   },
