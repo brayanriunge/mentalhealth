@@ -29,7 +29,7 @@ export default function Login() {
       });
 
       if (response?.status === 401) {
-        setServerErrors("Invalid Password or email does not exist");
+        setServerErrors("Invalid Password or Email Does Not Exist");
       }
 
       if (response?.error) {
