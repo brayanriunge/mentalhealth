@@ -27,6 +27,10 @@ export default function Login() {
         redirect: false, // Set this to true if you want to redirect after successful login
       });
 
+      if (response?.status === 401) {
+        toast.error("Invalid Password");
+      }
+
       if (response?.error) {
         // Handle login error
         console.error(response.error);

@@ -31,8 +31,8 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
   const router = useRouter();
   useEffect(() => {
     if (!session) {
-      router.push("/register");
       alert("Please Sign In First");
+      router.push("/register");
     }
   }, [session, router]);
 
