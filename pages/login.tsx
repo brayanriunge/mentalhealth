@@ -31,13 +31,15 @@ export default function Login() {
       if (response?.status === 401) {
         setServerErrors("Invalid Password or Email Does Not Exist");
       }
+      if (response?.ok) {
+        alert("login successfully");
+      }
 
       if (response?.error) {
         // Handle login error
         console.error(response.error);
       } else {
         router.push("/");
-        toast.success("login successfully");
       }
     } catch (error) {
       console.error(error);
