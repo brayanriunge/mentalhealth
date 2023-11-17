@@ -3,7 +3,7 @@ import { getArticles } from "@/hooks/getData";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import CardArticle from "@/components/Article/CardArticles";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
@@ -37,26 +37,28 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
 
   return (
     <Layout>
-      <section className="mx-auto min-h-full w-5/6 py-32 mb-0">
-        <motion.div
-          className="grid  md:grid-cols-3 items-center justify-between gap-8 mt-2"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={container}
-        >
-          {articles &&
-            articles.map((article) => (
-              <CardArticle
-                key={article.id}
-                author={article.author}
-                title={article.title}
-                content={article.content}
-                id={article.id}
-              />
-            ))}
-        </motion.div>
-      </section>
+      <Suspense fallback={<Loading />}>
+        <section className="mx-auto min-h-full w-5/6 py-32 mb-0">
+          <motion.div
+            className="grid  md:grid-cols-3 items-center justify-between gap-8 mt-2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={container}
+          >
+            {articles &&
+              articles.map((article) => (
+                <CardArticle
+                  key={article.id}
+                  author={article.author}
+                  title={article.title}
+                  content={article.content}
+                  id={article.id}
+                />
+              ))}
+          </motion.div>
+        </section>
+      </Suspense>
     </Layout>
   );
 };
