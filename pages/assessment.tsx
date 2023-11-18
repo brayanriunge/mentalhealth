@@ -125,9 +125,9 @@ const MentalHealthAssessment: React.FC = () => {
           onSubmit={handleSubmit}
           className="gap-16 shadow-3xl mt-8 py-10 md:h-full min-h-full md:pb-0 rounded-lg bg-green-300 flex flex-wrap items-start flex-col "
         >
-          <div className="flex items-center justify-between gap-8 border-4 border-double mt-5 w-5/6 mx-auto">
+          <div className=" items-center w-5/6 justify-between gap-8 border-4 border-double mt-5  mx-auto">
             <h1
-              className={`${roboto.className}font-bold text-3xl p-5  text-orange-800  md:ml-60  m-6`}
+              className={`${roboto.className}font-bold text-3xl p-5 flex place-content-center text-orange-800  m-10 mx-auto   py-4 mb-5`}
             >
               Assessment Test
             </h1>
