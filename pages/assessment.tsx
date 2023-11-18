@@ -127,7 +127,7 @@ const MentalHealthAssessment: React.FC = () => {
         >
           <div className="flex items-center justify-between gap-8 border-4 border-double mt-5 w-5/6 mx-auto">
             <h1
-              className={`${roboto.className}font-bold text-3xl sm:p-5  text-orange-800  md:ml-60  m-6`}
+              className={`${roboto.className}font-bold text-3xl p-5  text-orange-800  md:ml-60  m-6`}
             >
               Assessment Test
             </h1>
