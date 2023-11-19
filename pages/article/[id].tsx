@@ -1,7 +1,7 @@
 // pages/article/[id].tsx
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { getArticles } from "@/hooks/getData";
+import articleData from "@/articles.json";
 import Layout from "@/components/Layout";
 
 interface Article {
@@ -11,12 +11,11 @@ interface Article {
   author: string;
 }
 
-interface ArticlePageProps {
-  article: Article | null;
-}
-
-const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
+const ArticlePage: React.FC = () => {
   const router = useRouter();
+  const article = articleData.find(
+    (article: Article) => String(article.id) === String(article)
+  );
 
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -42,31 +41,5 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
     </Layout>
   );
 };
-
-export async function getStaticPaths() {
-  const data = await getArticles();
-
-  const paths =
-    data?.articles.map((article: any) => ({
-      params: { id: article.id.toString() },
-    })) || [];
-
-  return {
-    paths,
-    fallback: true,
-  };
-}
-
-export async function getStaticProps({ params }: any) {
-  const data = await getArticles();
-  const article =
-    data?.articles.find((a: any) => a.id === parseInt(params.id, 10)) || null;
-
-  return {
-    props: {
-      article,
-    },
-  };
-}
 
 export default ArticlePage;

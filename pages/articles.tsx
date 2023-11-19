@@ -1,5 +1,4 @@
-import { NextPage } from "next";
-import { getArticles } from "@/hooks/getData";
+import articleData from "@/articles.json";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import CardArticle from "@/components/Article/CardArticles";
@@ -15,10 +14,6 @@ interface Article {
   author: string;
 }
 
-interface HomeProps {
-  articles: Article[];
-}
-
 const container = {
   hidden: {},
   visible: {
@@ -26,7 +21,7 @@ const container = {
   },
 };
 
-const Home: NextPage<HomeProps> = ({ articles }) => {
+const Home: React.FC = () => {
   const { data: session } = useSession();
   const router = useRouter();
   useEffect(() => {
@@ -47,31 +42,20 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
             // viewport={{ once: true, amount: 0.5 }}
             // variants={container}
           >
-            {articles &&
-              articles.map((article) => (
-                <CardArticle
-                  key={article.id}
-                  author={article.author}
-                  title={article.title}
-                  content={article.content}
-                  id={article.id}
-                />
-              ))}
+            {articleData.map((article: Article) => (
+              <CardArticle
+                key={article.id}
+                author={article.author}
+                title={article.title}
+                content={article.content}
+                id={article.id}
+              />
+            ))}
           </motion.div>
         </section>
       </Suspense>
     </Layout>
   );
 };
-
-export async function getStaticProps() {
-  const data = await getArticles();
-
-  return {
-    props: {
-      articles: data?.articles || [],
-    },
-  };
-}
 
 export default Home;
