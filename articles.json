@@ -1,6 +1,5 @@
-{
-    "articles": [
-      {
+[
+        {
         "id": 1,
         "title": "How to Deal with Conflict with Your Depressed Partner",
         "content": "Depression and relationship conflict can exist in a cyclical pattern because depression can trigger irritability, angry outbursts, and withdrawal from loved ones, but relationship conflict can also spark feelings of depression. The two overlap. Caring for and living with someone coping with depression can be emotionally taxing, but there are steps you can take to work through and prevent conflict.\n\nEstablish clear and healthy communication patterns. Transparency is very important when dealing with complex mental health issues. Daily emotion check-ins that focus on feelings and triggers establish transparency and normalize talking about feelings and symptoms. It also helps to set clear boundaries. If you need a break, say that. Holding in your own needs to care for your partner will only cause resentment and empathy fatigue.\n\nSelf-care plans are essential. Both partners need specific self-care plans to use daily to keep stress levels as low as possible. Your plan should include how and where you receive support, daily exercise that fuels energy for you, time away from providing care, and hobbies that give you emotional space from the caring role.\n\nTake a pause. Sometimes conflict sneaks up on you even when you are practicing self-care and adhering to one another’s boundaries. It’s OK to pause a conflict to step away from the anger and frustration. Come up with an agreement that if one partner calls a pause, that is the signal to shift gears and do a needs assessment to figure out how both partners can work through the issue in a calm and productive way.",
@@ -55,4 +54,3 @@
         "author": "Thomas.W.Native"
       }
     ]
-  }
