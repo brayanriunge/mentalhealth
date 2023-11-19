@@ -1,5 +1,5 @@
 // pages/article/[id].tsx
-import { NextPage } from "next";
+
 import { useRouter } from "next/router";
 import articleData from "@/articles.json";
 import Layout from "@/components/Layout";
