@@ -5,9 +5,11 @@ import { PostData } from "@/pages/community";
 import Post from "@/components/sections/Post";
 import AddComment from "@/components/sections/AddComment";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function PostDetails() {
   const router = useRouter();
+  const { data: session } = useSession();
   const { slug } = router.query;
   const [postData, setPostData] = useState<PostData>();
 
@@ -24,6 +26,9 @@ export default function PostDetails() {
 
   useEffect(() => {
     fetchDetails();
+    if (!session) {
+      router.push("/");
+    }
   }, [slug]);
 
   return (

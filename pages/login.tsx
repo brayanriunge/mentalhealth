@@ -32,7 +32,7 @@ export default function Login() {
         setServerErrors("Invalid Password or Email Does Not Exist");
       }
       if (response?.ok) {
-        alert("login successfully");
+        toast.success("login successfully");
       }
 
       if (response?.error) {
