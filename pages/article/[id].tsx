@@ -13,8 +13,9 @@ interface Article {
 
 const ArticlePage: React.FC = () => {
   const router = useRouter();
+  const { id } = router.query;
   const article = articleData.find(
-    (article: Article) => String(article.id) === String(article)
+    (article: Article) => String(article.id) === String(id)
   );
 
   if (router.isFallback) {
