@@ -37,7 +37,7 @@ export default async function registerUser(
           password: hashedPassword,
         },
       });
-
+      console.log(user);
       //successful message
       if (user) {
         return res.status(201).json({ message: "User created" });
